@@ -1,4 +1,4 @@
-o/*
+/*
 Exercícios de interpretação de código
 
 exercício 1) será impresso duas linhas, primeira linha com número 10
