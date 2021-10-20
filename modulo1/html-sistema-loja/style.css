@@ -1,0 +1,19 @@
+h1{
+    color:blue
+}
+p{
+   color:floralwhite; background-color:firebrick;
+}
+span{
+    background-color: green;
+}
+#amarelo{
+    color:yellow
+}
+
+#branco{
+    color:white
+}
+#cabecalho{
+    margin: 50px
+    }

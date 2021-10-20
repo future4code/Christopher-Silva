@@ -1,0 +1,25 @@
+div{
+    background-color: yellow;
+}
+
+h2{
+    background:turquoise
+}
+
+li{
+    background-color: violet;
+}
+#verde{
+    color:green; background-color: white;
+    display: inline;
+}
+#laranja{
+    background-color: orange; display:inline;
+}
+ol{
+    background-color: tomato;
+}
+
+#cabecalho{
+margin: 50px
+}
