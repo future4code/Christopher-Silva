@@ -38,6 +38,8 @@ div>p:first-child {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    margin:150px 50px
+    
 }
 
 .botao-amarelo:hover {
@@ -65,29 +67,45 @@ div>p:first-child {
     margin-right: auto;
     background-color: #2274a5;
     color: white;
-    padding: 30px 0px;
+    padding: 30px 100px 100px 400px;
+    border: 1px solid black;
+    height:250px;
+    text-align: center;
 }
 
 #container-de-descricao>p {
-    border: 1px solid black;
     padding: 50px 0px;
 }
 #container-de-descricao>ol {
-    padding: 50px 0px;
+    padding:5px 0px 10px 5px;
+    position:relative;
+    width:200px;
+    height:50px;
+    
 }
 
 #container-de-descricao>h3 {
-    padding: 0px 0px 200px;
+    position:absolute;
+    text-align: center;
 }
 
 #container-para-comprar {
     background-color: #e7eb90;
+    padding:0px 330px 0px 325px;
+    border: 1px solid black;
+    position:absolute;
+
 }
+
 
 #container-para-comprar>p {
     color: #c44f00;
-    padding: 100px 0;
+    text-align: center;
     font-size: 60px;
+    position:absolute;
+    height:100px 100px;
+    margin:50px 100px 100px -260px
+    
 }
 
 
@@ -158,7 +176,6 @@ img {
     background-color: white;
     width: 100px;
     height: 20px;
-    border: 1px solid black;
     border-radius: 5px;
     font-size: 10px;
     color: black;
