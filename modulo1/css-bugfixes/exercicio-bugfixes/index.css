@@ -75,6 +75,7 @@ div img {
 }
 
 #container-de-descricao>p {
+    border: 1px solid black;
     padding: 50px 0px;
 }
 #container-de-descricao>ol {
