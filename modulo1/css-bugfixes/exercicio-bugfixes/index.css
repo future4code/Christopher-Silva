@@ -25,6 +25,15 @@ input {
 button:focus {
     color: white;
 }
+#busca{
+    background-color: rgb(12, 12, 12);
+}
+#busca:hover{
+    opacity: 80%;
+}
+#busca:active{
+    background-color: rgb(12, 12, 12);
+}
 
 div>p:first-child {
     display: inline;
@@ -146,6 +155,7 @@ td button:active {
 .container-do-search {
     margin-top: 10px;
     height: 100px;
+   
 }
 
 img {
