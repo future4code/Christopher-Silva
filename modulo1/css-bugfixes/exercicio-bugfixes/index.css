@@ -29,10 +29,7 @@ div>p:first-child {
     display: inline;
 }
 
-img {
-    
-    
-}
+
 
 .botao-amarelo {
     background-color: #ffaf43;
@@ -136,6 +133,14 @@ img {
 
 #chinelo{
     width:35px;
+}
+
+#lupa {
+    
+    position:absolute;
+    width:30px;
+    height: 22px;
+     
 }
 
 
