@@ -25,16 +25,13 @@ button:focus {
     color: white;
 }
 
-img {
-    width: 100px;
-}
-
 div>p:first-child {
     display: inline;
 }
 
-div img {
-    background: black;
+img {
+    
+    
 }
 
 .botao-amarelo {
@@ -113,6 +110,7 @@ table {
     border: 1px solid black;
     width:600px;
     text-align: center;
+    
 }
 
 td button {
@@ -127,6 +125,19 @@ td button {
     margin-top: 10px;
     height: 100px;
 }
+
+img {
+    width:50px; 
+}
+
+#camiseta{
+    width:35px;
+}
+
+#chinelo{
+    width:35px;
+}
+
 
 
 #back-button {
