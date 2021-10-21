@@ -120,11 +120,10 @@ div:last-child {
 }
 
 table {
-    width: 60%;
-    border: 1px solid black;
+    position:relative;
     width:600px;
+    margin-left: 220px;
     text-align: center;
-    
 }
 
 td button {
@@ -166,18 +165,22 @@ img {
     position:absolute;
     width:30px;
     height: 22px;
+    
      
 }
 
 
 
 #back-button {
+    position:absolute;
     background-color: white;
     width: 100px;
     height: 20px;
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin-left: 470px;
+    margin-top:200px ;
 }
 
 #back-button:hover {
