@@ -1,0 +1,198 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family:roboto;
+}
+
+h2 {
+    background-color: #fe7e02;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    text-align: center;
+}
+
+input {
+    height: 20px;
+    width: 500px;
+}
+
+button:focus {
+    color: white;
+}
+#busca{
+    background-color: rgb(12, 12, 12);
+}
+#busca:hover{
+    opacity: 80%;
+}
+#busca:active{
+    background-color: rgb(12, 12, 12);
+}
+
+div>p:first-child {
+    display: inline;
+}
+
+
+
+.botao-amarelo {
+    background-color: #ffaf43;
+    width: 250px;
+    height:40px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    margin:150px 50px
+    
+}
+
+.botao-amarelo:hover {
+    background-color: #c44f00;
+}
+
+.container {
+    height: 500px;
+    text-align: center;
+}
+
+.icone {
+    height: 15px;
+}
+
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+
+#container-de-descricao {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #2274a5;
+    color: white;
+    padding: 30px 100px 100px 350px;
+    height:250px;
+    text-align: center;
+}
+
+#container-de-descricao>p {
+    padding: 50px 0px;
+}
+#container-de-descricao>ol {
+    padding:20px 0px 10px 5px;
+    position:relative;
+    width:300px;
+    height:50px;
+    
+}
+
+
+#realize{
+    font-size: 22px;
+}
+
+#container-para-comprar {
+    background-color: #e7eb90;
+    padding:0px 330px 0px 325px;
+    position:absolute;
+
+}
+
+
+#container-para-comprar>p {
+    color: #c44f00;
+    text-align: center;
+    font-size: 60px;
+    position:absolute;
+    height:100px 100px;
+    margin:50px 100px 100px -260px
+    
+}
+
+
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+div:nth-child(2),
+div:last-child {
+    text-align: center;
+}
+
+table {
+    position:relative;
+    width:600px;
+    margin-left: 220px;
+    text-align: center;
+}
+
+td button {
+    background-color: #fadf63;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+}
+
+td button:hover {
+    background-color: #cfb647
+}
+
+td button:active {
+    color: white
+}
+
+
+.container-do-search {
+    margin-top: 10px;
+    height: 100px;
+   
+}
+
+img {
+    width:50px; 
+}
+
+#camiseta{
+    width:35px;
+}
+
+#chinelo{
+    width:35px;
+}
+
+#lupa {
+    
+    position:absolute;
+    width:30px;
+    height: 22px;
+    
+     
+}
+
+
+
+#back-button {
+    position:absolute;
+    background-color: white;
+    width: 100px;
+    height: 20px;
+    border-radius: 5px;
+    font-size: 10px;
+    color: black;
+    margin-left: 470px;
+    margin-top:200px ;
+}
+
+#back-button:hover {
+    background-color: #635a3d
+}
