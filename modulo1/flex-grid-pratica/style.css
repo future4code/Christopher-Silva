@@ -33,6 +33,21 @@ nav{
     margin: 20px
 }
 
+main{
+    display:flex;
+    flex-direction: column;
+    height: 74vh;
+    justify-content: flex-start;
+    
+    margin: 20px 160px;
+    gap: 20px
+}
+
+
+
+
+
+
 
 .botaovideo{
     border:1px solid green;
