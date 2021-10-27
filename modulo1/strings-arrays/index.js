@@ -141,5 +141,131 @@ listaDeTarefas.splice(realizou-1,1)
 //f)
 console.log(listaDeTarefas)
 */
+/*
 
+const num1 = 5
+const num2 = 20
 
+let maiorNumero = 0
+let menorNumero = 0
+    if(num1>num2){
+        maiorNumero = num1
+        menorNumero = num2
+    }else{
+        maiorNumero = num2
+        menorNumero = num1
+    }
+
+    var maiorDivisivelPorMenor = (maiorNumero%menorNumero===0)
+    var diferenca = maiorNumero - menorNumero
+      
+return {maiorNumero,maiorDivisivelPorMenor,diferenca}
+*/
+/*
+const ladoA = 6
+const ladoB = 4
+const ladoC = 4
+
+if(ladoA===ladoB&&ladoA===ladoC){
+    console.log("Equilátero")
+}else if(ladoA!==ladoB&&ladoA!==ladoC&&ladoB!==ladoC){
+    console.log("Escaleno")
+}else if(ladoA===ladoB&&ladoA!==ladoC){
+    console.log("Isósceles")
+}else if(ladoA===ladoC&&ladoA!==ladoB){
+    console.log("Isósceles 2")
+}else{
+    console.log("Isósceles 3")
+}
+*/
+/*
+var array=[1,2,3,5,6,8,9,7,10]
+console.log(array)
+let i=0
+let maiorNumero = 0
+let segundoMaiorNumero = 0
+while(i< array.length){
+    if(array[i] > maiorNumero){
+maiorNumero = array[i]
+    }
+    i++
+}
+array.splice(array.indexOf(maiorNumero),1)
+console.log(array)
+
+for(let i = 0; i< array.length;i++){
+    if(array[i] > segundoMaiorNumero){
+        segundoMaiorNumero = array[i]
+    }
+}
+
+console.log(segundoMaiorNumero)
+
+let menorNumero = maiorNumero
+let segundoMenorNumero = maiorNumero
+
+for(let i = 0; i< array.length;i++){
+    if(array[i] < menorNumero){
+        menorNumero = array[i]
+    }
+}
+
+console.log(menorNumero)
+
+array.splice(array.indexOf(menorNumero),1)
+
+console.log(array)
+
+for(let i = 0; i< array.length;i++){
+    if(array[i] < segundoMenorNumero){
+        segundoMenorNumero = array[i]
+    }
+}
+console.log(segundoMenorNumero)
+*/
+/*
+var filme = {
+    nome: 'O Diabo Veste Prada',
+    ano: 2006,
+    diretor: 'David Frankel',
+    atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
+ }
+ console.log("Venha assistir ao filme ",$(filme.nome),", de ",$(filme.ano),", dirigido por ",$(filme.diretor)," e estrelado por ",$(filme.atores),".")
+
+*/
+
+let pessoas = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
+
+/*
+let permissao = (pessoas) =>{
+    return pessoas.altura>1.5&&pessoas.idade>14&&pessoas.idade<60
+}
+    
+let pessoasQUePodemBrincar = pessoas.filter(permissao)
+
+   console.log(pessoasQUePodemBrincar)
+   */
+
+   var contas = [
+	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
+]
+
+var soma = 0
+
+ for(var i = 0; i < contas.compras.length; i++) {
+    contas.compras.length += contas.compras[i];
+}
+
+console.log(soma)
