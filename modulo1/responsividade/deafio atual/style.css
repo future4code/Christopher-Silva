@@ -1,0 +1,146 @@
+*{
+margin:0;
+ padding: 0;
+}
+
+header{
+    display:grid;
+    grid-template-columns: 1fr;
+    height: 10vh;
+    background-color: red;
+}
+
+main{
+    display: grid;
+    gap: 10px;
+    height: 80vh;
+    margin:10px;
+}
+
+nav{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+b{
+    display:grid; 
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    height: 30vh;
+
+}
+div{
+    display:grid;
+    place-items: center;
+}
+
+#um{
+    background-color: blue;
+    
+}
+#dois{
+    background-color:yellow;
+}
+
+#tres{
+    background-color:green;
+}
+#quatro{
+    background-color: blue;
+}
+#cinco{
+    background-color:yellow;
+}
+#seis{
+    background-color:green;
+   
+}
+#sete{
+    background-color: black;
+    color: white;
+}
+#oito{
+    background-color: black;
+    color: white;
+}
+#nove{
+    border: 1px solid black;
+}
+#dez{
+    border: 1px solid black;
+}
+#onze{
+    border: 1px solid black;
+}
+
+@media screen and (max-device-width : 480px) {
+    nav{
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        height: 40vh;
+    }
+    main{
+        display:grid;
+       
+        
+    } 
+    b{
+    display:grid;
+    grid-template-columns: 1fr;
+    row-gap:10px;
+    }
+
+    div{
+
+    }
+    
+    #seis{
+        
+    }
+    #onze{
+        grid-column: 1 ;
+    }
+
+
+
+
+ }
+
+
+
+@media screen and (min-device-width : 481px) and (max-device-width : 700px) {
+   
+nav{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    height: 40vh;
+}  
+b{
+    height: 40vh;
+}
+#tres{
+    grid-column: 1/-1 ;
+}
+
+#seis{
+    grid-column: 1/-1 ;
+}
+#onze{
+    grid-column: 1/-1 ;
+}
+
+}
+
+
+
+
+
+
+
+
+
+

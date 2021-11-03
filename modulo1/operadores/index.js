@@ -98,3 +98,8 @@ console.log("O primeiro numero é igual ao segundo?", b)
 console.log("O primeiro numero é divisível pelo segundo?", c)
 console.log("O segundo numero é divisível pelo primeiro?", d)
 */
+
+let nome = "Chijo"
+let nomeAlterado = nome.tolowerCase()
+
+console.log(nomeAlterado)
