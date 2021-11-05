@@ -1,14 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import {IconeComContador} from '../IconeComContador/IconeComContador'
-
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
-import iconeEstrelaBranca from'https://media.istockphoto.com/vectors/star-icon-on-white-background-flat-style-white-star-icon-for-your-web-vector-id1158111903'
-import iconeEstrelaPreta from 'https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46106/star-emoji-clipart-md.png'
+
+
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -87,14 +85,6 @@ this.setState(curtindo)
       iconeCurtida = iconeCoracaoBranco
     }
 
-    let iconeSalvar
-
-    if(this.state.numeroCusalvar) {
-      iconeSalvar = iconeEstrelaBranca
-    } else {
-      iconeSalvar = iconeEstrelaPreta
-    }
-
 
     let componenteComentario
     if(this.state.comentando) {
@@ -112,7 +102,6 @@ this.setState(curtindo)
       <PostFooter>
         <IconeComContador
           icone={iconeCurtida}
-          salvar={iconeSalvar}
           onClickIcone={this.onClickCurtida}
           valorContador={this.state.numeroCurtidas}
         />
