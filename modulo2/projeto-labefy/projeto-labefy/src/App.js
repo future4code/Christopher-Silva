@@ -35,7 +35,10 @@ height: 50px;
 display:flex;
 align-items:center;
 justify-content:center;
-
+`
+const CardMusica = styled.div`
+border: 1px solid yellow;
+width:300px
 `
 
 
@@ -45,18 +48,31 @@ export default class App extends React.Component {
     playlists: [],
     musicas: [],
     acessar: "fechado",
-    nomeMusica: "FFF",
-    nomeCantor: "BBB",
-    urlVideo: "https://www.youtube.com/watch?v=pXRviuL6vMY&list=RDMMpXRviuL6vMY&start_radio=1",
-
-
+    nomeMusica: "",
+    nomeCantor: "",
+    urlVideo: "",
+    idPlaylist: "id",
+    idMusica:"",
   }
+
   componentDidMount() {
     this.listarPlaylist()
   }
   handleNome = (e) => {
     this.setState({ nome: e.target.value })
   }
+
+  handleNomeCantor = (e) => {
+    this.setState({ nomeCantor: e.target.value })
+  }
+  handleNomeMusica = (e) => {
+    this.setState({ nomeMusica: e.target.value })
+  }
+  handleUrl = (e) => {
+    this.setState({ urlVideo: e.target.value })
+  }
+
+
   deletaPlaylist = (id) => {
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
     axios.delete(url, {
@@ -91,6 +107,28 @@ export default class App extends React.Component {
       })
   }
 
+  addMusica = () => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks`
+    const body = {
+      name: this.state.nomeMusica,
+      artist: this.state.nomeCantor,
+      url: this.state.urlVideo
+    }
+    axios.post(url, body, {
+      headers: {
+        Authorization: "christopher-feilstrecker-silva"
+      }
+    })
+      .then((res) => {
+        this.setState({ nomeMusica: "", nomeCantor: "", urlVideo: "" })
+        this.abrePlaylist(this.state.idPlaylist)
+      }).catch((err) => {
+        console.log(err.response.data)
+      })
+  }
+
+
+
   listarPlaylist = () => {
     const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
     axios.get(url, {
@@ -112,33 +150,34 @@ export default class App extends React.Component {
       }
     })
       .then((res) => {
-        this.setState({ musicas: res.data.result.tracks })
-        console.log(res.data.result.tracks)
+        this.setState({ musicas: res.data.result.tracks, idPlaylist: id })
         this.abriLista()
       })
       .catch((err) => {
-        alert(err.response)
+        alert("erro")
+        console.log(err.response.data)
       })
   }
+
   deletaMusica = (id) => {
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/${id}`
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks/${id}`
     axios.delete(url, {
       headers: {
         Authorization: "christopher-feilstrecker-silva"
       }
     })
       .then((res) => {
-        this.abrePlaylist()
+        this.abrePlaylist(this.state.idPlaylist)
       })
       .catch((err) => {
         alert(err.response.data)
       })
   }
 
-  
 
 
-  
+
+
 
   abriLista = () => {
     this.setState({ acessar: "aberto" })
@@ -148,7 +187,7 @@ export default class App extends React.Component {
   }
   render() {
     const listaDePlaylist = this.state.playlists.map((tipo) => {
-      return <li><List key={tipo.id}>
+      return <li key={tipo.id}><List>
         {tipo.name}
         <button onClick={() => this.deletaPlaylist(tipo.id)}>Apagar</button>
         <button onClick={() => this.abrePlaylist(tipo.id)}>Acessar</button>
@@ -156,42 +195,48 @@ export default class App extends React.Component {
     })
     const listaDeMusicas = this.state.musicas.map((musica) => {
       return <div key={musica.id}>
-        <p>Adicionar Música</p>
-        <input
-          placeholder={"nome da música"}
-          value={this.state.nomeMusica}
-          onChange={this.handleNomeMusica}
-        />
-        <input
-          placeholder={"nome d0 cantor/banda"}
-          value={this.state.nomeCantor}
-          onChange={this.handleNomeCantor}
-        />
-        <input
-          placeholder={"url da Música"}
-          value={this.state.urlVideo}
-          onChange={this.handleUrl}
-        />
-       
-
+        <CardMusica>
+        <audio ref="audio_tag" src={musica.url} controls />
+          <div>Música:{musica.name}</div>
+          <div>Cantor:{musica.artist}</div>
+          <button onClick={() => this.deletaMusica(musica.id)}>Deletar</button>
+        </CardMusica>
       </div>
     })
 
     const acessaPlaylist = () => {
-    switch (this.state.acessar) {
-      case "aberto":
-        return <div>
-          <h1>MUSICAS</h1>
-          {listaDeMusicas}
-        </div>
-      case "fechado":
-        return <div>selecione uma lista</div>
-      default:
-        return <div>erro</div>
+      switch (this.state.acessar) {
+        case "aberto":
+          return <div>
+            <button onClick={this.fecharLista}>Fechar Playlist</button>
+            <h1>MUSICAS</h1>
+            <p>Adicionar Música</p>
+            <input
+              placeholder={"nome da música"}
+              value={this.state.nomeMusica}
+              onChange={this.handleNomeMusica}
+            />
+            <input
+              placeholder={"nome do cantor/banda"}
+              value={this.state.nomeCantor}
+              onChange={this.handleNomeCantor}
+            />
+            <input
+              placeholder={"url da Música"}
+              value={this.state.urlVideo}
+              onChange={this.handleUrl}
+            />
+            <button onClick={this.addMusica}>Criar</button>
+            <p>{listaDeMusicas}</p>
+          </div>
+        case "fechado":
+          return <div>selecione uma lista</div>
+        default:
+          return <div>erro</div>
+      }
     }
-  }
 
-    
+
 
 
 
