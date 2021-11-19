@@ -152,6 +152,7 @@ export default class App extends React.Component {
       .then((res) => {
         this.setState({ musicas: res.data.result.tracks, idPlaylist: id })
         this.abriLista()
+        console.log(this.state.musicas)
       })
       .catch((err) => {
         alert("erro")
