@@ -31,7 +31,7 @@ flex-direction:column;
 align-items:center;
 justify-content: center;
 border:1px solid black;
-margin:40px;
+margin:30px 50px;
 height:180px;
 background-color:white
 `

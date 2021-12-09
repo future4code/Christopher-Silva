@@ -4,6 +4,10 @@
 > Estado: Em desenvolvimento ⚠️
 ### Projeto labeX tem a finalidade de testar, exercitar e aprender como usar componentes com Hooks, React Router, Autenticação e Forms.
 
+## E-mail e Senha de acesso
+"email": "dev@gmail.com.br",
+	"password": "123456"
+
 ## Alguns campos do projeto são:
 
 ### - Pagina inicial(Home)

@@ -4,7 +4,6 @@ export const HeaderTrips = styled.div`
 display:flex;
 justify-content: space-between;
 height:100px;
-justify-content: space-between;
 align-items: center;
 background-color:white;
 `
@@ -30,5 +29,9 @@ border: 1px solid black;
 margin-top:20px;
 width:600px;
 height:200px;
+display:flex;
+flex-direction:column;
+justify-content: space-evenly;
+padding:10px;
 
 `
