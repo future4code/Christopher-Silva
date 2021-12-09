@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
+import Url_Base from "../../Constants/Url";
 import { useRequestData } from "../../Hooks/useRequestData";
 import { Body } from "../../Styled";
 import { AdminBody, AdminBoxBody, HeaderAdmin } from "./AdminHomeLayout";
@@ -17,7 +17,7 @@ const AdminHomePage = () => {
 
   const delTrip = (id) => {
     console.log("pega id",id)
-axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/christopher-silva-carver/trips/${id}`, {
+axios.delete(Url_Base+`/trips/${id}`, {
       headers: {
         auth:token
       }
@@ -53,14 +53,12 @@ axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/christoph
  
     if (token === null) 
       navigate("/")
-    
 
   const CleanLocalStorage = () => {
     localStorage.setItem('token', "")
     console.log(localStorage.getItem('token'))
     navigate("/")
   }
-
 
   const creatTrip = () => {
     const body = {
@@ -70,7 +68,7 @@ axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/christoph
       description: description,
       durationInDays: durationInDays
     };
-    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/christopher-silva-carver/trips', body, {
+    axios.post(Url_Base + `/trips`, body, {
       headers: {
         auth: token
       }

@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Url_Base from "../../Constants/Url";
 import { useRequestData } from "../../Hooks/useRequestData";
 import { Body } from "../../Styled";
 import { BodyEnrollTrip, BoxEnrollTrip, HeaderEnrollTrip, SelecEnrollTrip } from "./ApplicationFormLayout";
-const token = localStorage.getItem('token')
+
 
 const AplicationFormPage = () => {
+
   const allTrips = useRequestData()
   const [name,setName]=useState("")
   const [age,setAge]=useState("")
@@ -24,10 +26,16 @@ const AplicationFormPage = () => {
       country: country,
 
     };
-    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/christopher-silva-carver/trips/${idTrip}/apply`, body)
+    console.log("nome no cadastro",name)
+    axios.post(Url_Base+`/trips/${idTrip}/apply`, body)
       .then((res) => {
-        console.log("certo ", res.data)
-        
+        console.log("Inscrição concluida ", res.data);
+        alert("Inscrição concluida")
+        setName('');
+        setAge('');
+        setApplicationText('');
+        setProfession('');
+        setCountry('');
       })
       .catch((er) => {
         console.log("erro: ", er.response)
@@ -52,9 +60,6 @@ const AplicationFormPage = () => {
   const onChangeId = (ev) => {
     setIdTrip(ev.target.value);
   };
-
-
-
   const tripsListNames = allTrips.map((trip, index) => {
     return <option key={index} value={trip.id}>{trip.name} </option>
   })
@@ -71,13 +76,11 @@ const AplicationFormPage = () => {
           </select>
         </SelecEnrollTrip>
         <BoxEnrollTrip>
-          
           <input placeholder={"Nome"} onChange={onChangeName}/>
           <input placeholder={"Idade"} onChange={onChangeAge}/>
           <input placeholder={"Texto"} onChange={onChangeApplicationText}/>
           <input placeholder={"Profissão"} onChange={onChangeProfession}/>
           <input placeholder={"País de origem"} onChange={onChangeCountry}/>
-          
         </BoxEnrollTrip>
         <button onClick={creatEnroll}>Inscrever-se</button>
       </BodyEnrollTrip>

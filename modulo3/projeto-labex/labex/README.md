@@ -35,8 +35,8 @@
 
 
 ## Link Surge:
-[]
-(Roda o projeto direto no navegador sem precisar baixar os arquivos)
+[pastoral-skirt.surge.sh]
+
 
 ## Link Wireframe (esqueleto do site)
 [https://wireframe.cc/pro/pp/8ffa5ff8f501258]

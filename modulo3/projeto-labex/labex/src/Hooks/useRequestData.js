@@ -12,13 +12,15 @@ export function useRequestData() {
         })
             .then((res) => {
                 setAllTrips(res.data.trips)
+                console.log("funciona get do useRequestData",res.data.trip)
             })
             .catch((err) => {
+                console.log("erro do useRequestData",err.response)
             })
     };
     useEffect(() => {
         getTrips()
-    })
+    }, [])
     return allTrips;
 
 }

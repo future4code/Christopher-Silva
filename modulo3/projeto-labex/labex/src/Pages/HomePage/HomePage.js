@@ -3,7 +3,8 @@ import { BodyHome, BodyText, BoxTravelHome, ButtonTravel, CardTravelHome, HomeHe
 import RocketLogo from '../../Img/logo-rocket.png'
 import { Body } from "../../Styled";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import Url_Base from "../../Constants/Url";
 
 const HomePage = () => {
   const [email, setEmail] = useState("");
@@ -28,7 +29,7 @@ const HomePage = () => {
       password: password
     };
 
-    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/christopher-silva-carver/login', body)
+    axios.post(Url_Base+`/login`, body)
       .then((res) => {
         console.log("certo ",res.data)
         localStorage.setItem('token',res.data.token)
@@ -58,19 +59,15 @@ const HomePage = () => {
         onChange={onChangePassword}
       />
       <button onClick={onSubmitLogin}>Enviar</button>
-
     </div>
     }
   }
-
   return (
     <Body>
       <HomeHeader>
         <ImgLogo src={RocketLogo} alt="Logo" />
-        {/* <ButtonHead><Link to="/admin/trips/list">Admin</Link></ButtonHead> */}
         <div>
           {login()}
-
         </div>
       </HomeHeader>
       <BodyHome>
@@ -87,8 +84,6 @@ const HomePage = () => {
           </CardTravelHome>
         </div>
       </BodyHome>
-
-
     </Body>
   );
 }
