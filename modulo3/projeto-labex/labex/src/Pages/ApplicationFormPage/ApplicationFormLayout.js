@@ -16,8 +16,9 @@ height:400px;
 border: 1px solid black;
 display:flex;
 flex-direction:column;
-align-items: center;
 justify-content:center;
+gap:20px;
+padding:0px 50px;
 `
 
 export const BodyEnrollTrip = styled.div`
@@ -26,3 +27,10 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 `
+
+export const InputDescrip = styled.input`
+font-size: 20px;
+`
+export const SelectSize = styled.select`
+font-size: 20px;
+` 

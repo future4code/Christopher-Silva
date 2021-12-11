@@ -22,5 +22,4 @@ export function useRequestData() {
         getTrips()
     }, [])
     return allTrips;
-
 }

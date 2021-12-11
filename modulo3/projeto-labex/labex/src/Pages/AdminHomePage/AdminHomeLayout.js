@@ -21,3 +21,14 @@ display:flex;
 flex-direction:column;
 align-items:center
 `
+export const FormInputCard = styled.form`
+display:flex;
+flex-direction:column;
+width:400px;
+height:400px;
+gap:15px;
+align-itens:center;
+`
+export const LiSize = styled.li`
+font-size:20px;
+`

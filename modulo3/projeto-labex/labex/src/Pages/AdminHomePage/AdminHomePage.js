@@ -1,58 +1,49 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react/cjs/react.development";
+import PlanetsList from "../../Constants/Planets";
 import Url_Base from "../../Constants/Url";
 import { useRequestData } from "../../Hooks/useRequestData";
 import { Body } from "../../Styled";
-import { AdminBody, AdminBoxBody, HeaderAdmin } from "./AdminHomeLayout";
+import { InputDescrip, SelectSize } from "../ApplicationFormPage/ApplicationFormLayout";
+import { AdminBody, AdminBoxBody, FormInputCard, HeaderAdmin, LiSize } from "./AdminHomeLayout";
 
 const AdminHomePage = () => {
-  const [name, setName] = useState("");
-  const [planet, setPlanet] = useState("");
-  const [date, setDate] = useState("");
-  const [description, setDescription] = useState("");
-  const [durationInDays, setDurationInDais] = useState("");
+  
   const token = localStorage.getItem('token')
   const allTrips = useRequestData()
+  const [form,setForm]=useState({name:"",planet:"",date:"",description:"",durationInDays:""})
 
   const delTrip = (id) => {
-    console.log("pega id",id)
-axios.delete(Url_Base+`/trips/${id}`, {
+    console.log("pega id", id)
+    axios.delete(Url_Base + `/trips/${id}`, {
       headers: {
-        auth:token
+        auth: token
       }
     })
       .then((res) => {
-       console.log("ok",res.data)
+        console.log("ok", res.data)
+        window.location.reload()
       })
       .catch((err) => {
-        console.log("erre",err.data)
+        console.log("erre", err.data)
       })
   }
   const tripsListNames = allTrips.map((trip, index) => {
-    return <li key={index}>{trip.name} {trip.id}<button onClick={() =>delTrip(trip.id)}>X</button></li>
+    return <LiSize key={index}>{trip.name}<button onClick={() => delTrip(trip.id)}>X</button></LiSize>
   })
 
-  const onChangeName = (ev) => {
-    setName(ev.target.value);
-  };
-  const onChangePlanet = (ev) => {
-    setPlanet(ev.target.value);
-  };
-  const onChangeDate = (ev) => {
-    setDate(ev.target.value);
-  };
-  const onChangeDescription = (ev) => {
-    setDescription(ev.target.value);
-  };
-  const onChangeDurationInDais = (ev) => {
-    setDurationInDais(ev.target.value);
-  };
+  const onChangeInputs = (ev) => {
+    const name = ev.target.name
+    const value = ev.target.value
+    setForm({ ...form, [name]: value })
+  }
 
   const navigate = useNavigate();
- 
-    if (token === null) 
-      navigate("/")
+
+  if (token === null)
+    navigate("/")
 
   const CleanLocalStorage = () => {
     localStorage.setItem('token', "")
@@ -60,14 +51,9 @@ axios.delete(Url_Base+`/trips/${id}`, {
     navigate("/")
   }
 
-  const creatTrip = () => {
-    const body = {
-      name: name,
-      planet: planet,
-      date: date,
-      description: description,
-      durationInDays: durationInDays
-    };
+  const creatTrip = (event) => {
+    event.preventDefault()
+    const body = form;
     axios.post(Url_Base + `/trips`, body, {
       headers: {
         auth: token
@@ -76,12 +62,17 @@ axios.delete(Url_Base+`/trips/${id}`, {
     )
       .then((res) => {
         console.log("certo ", res.data)
-        
+        alert("Viagem criada com sucesso")
+        window.location.reload()
       })
       .catch((er) => {
         console.log("erro: ", er.response)
       })
   }
+
+  useEffect(() => {
+    
+  }, [allTrips])
 
   return (
     <Body>
@@ -98,32 +89,37 @@ axios.delete(Url_Base+`/trips/${id}`, {
       <AdminBody>
         <AdminBoxBody>
           <h2>Criar Viagem</h2>
-          <input
-            placeholder={"Nome"}
-            type='nome'
-            value={name}
-            onChange={onChangeName}
-          />
-          <select name="planeta" onChange={onChangePlanet} >
-            <option value="planeta1">Planeta1</option>
-            <option value="planeta2" >Planeta2</option>
-            <option value="planeta3">Planeta3</option>
-          </select>
-          <input
-            placeholder="Data" onChange={onChangeDate} type="date" name="date" required="" min="" value={date}></input>
-          <input
-            placeholder={"Descrição"}
-            type='descrição'
-            value={description}
-            onChange={onChangeDescription}
-          />
-          <input
-            placeholder={"Duração(dias)"}
-            type='duração'
-            value={durationInDays}
-            onChange={onChangeDurationInDais}
-          />
-          <button onClick={creatTrip}>Criar</button>
+          <FormInputCard onSubmit={creatTrip}>
+            <InputDescrip
+              placeholder={"Nome"}
+              type='nome'
+              name="name"
+              value={form.name}
+              onChange={onChangeInputs}
+              required
+            />
+            <SelectSize name="planet" value={form.planet} onChange={onChangeInputs} >
+              {PlanetsList}
+            </SelectSize>
+            <InputDescrip
+              placeholder="Data" onChange={onChangeInputs} type="date" value={form.date} name="date" required="" min="" ></InputDescrip>
+            <InputDescrip
+              placeholder={"Descrição"}
+              name="description"
+              value={form.description}
+              onChange={onChangeInputs}
+              required
+            />
+            <InputDescrip
+              placeholder={"Duração(dias)"}
+              type='number'
+              name="durationInDays"
+              value={form.durationInDays}
+              onChange={onChangeInputs}
+              required
+            />
+            <div><button>Criar</button></div>
+          </FormInputCard >
         </AdminBoxBody>
         <AdminBoxBody>
           <h2>Viagens Disponiveis</h2>

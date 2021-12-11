@@ -1,25 +1,24 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
+import SelectTripsNames from "../../Constants/TripsListName";
 import Url_Base from "../../Constants/Url";
-import { useRequestData } from "../../Hooks/useRequestData";
 import { Body } from "../../Styled";
 import { BoxEnroll, EnrollBody, HeaderEnroll, SelectTravel } from "./AdminEnrollLayout";
 
 const CreateTripPage = () => {
-  const allTrips = useRequestData()
   const [idTrip, setIdTrip] = useState("")
   const token = localStorage.getItem('token')
   const [tripDetail, setTripDetails] = useState("")
   const [bodyApprove, setBodyApprove] = useState("")
-  /* const[idEnroll,setIdEnroll]=useState("") */
-
+  
+  
   const onChangeId = (ev) => {
     setIdTrip(ev.target.value);
   };
 
-  const getTrip = () => {
+  const getTripDet = () => {
     axios.get(Url_Base + `/trip/${idTrip}`, {
       headers: {
         auth: token
@@ -57,7 +56,6 @@ const CreateTripPage = () => {
     )
       .then((res) => {
         console.log("certo ", res.data)
-        getTrip()
       })
       .catch((er) => {
         console.log("erro: do putEnroll ", er.response)
@@ -75,7 +73,6 @@ const CreateTripPage = () => {
     </div>
   }
 
-
   const approvedList = tripDetail && tripDetail.approved.map((approved, index) => {
     return <li>{approved.name}</li>
   })
@@ -91,21 +88,18 @@ const CreateTripPage = () => {
     </BoxEnroll>
   })
 
-  const tripsListNames = allTrips.map((trip, index) => {
-    return <option key={index} value={trip.id}>{trip.name} </option>
-  })
+  console.log("detalhes das trips", tripDetail)
 
   useEffect(() => {
-    getTrip()
+    getTripDet()
   }, [idTrip])
-  console.log("detalhes das trips", tripDetail)
   return (
     <Body>
       <HeaderEnroll>
         <SelectTravel>
           <div>Viagens</div>
           <select name="ordenação" onChange={onChangeId} >
-            {tripsListNames}
+            {SelectTripsNames()}
           </select>
         </SelectTravel>
         <button><Link to="/admin/trips/list">Voltar</Link></button>
@@ -125,5 +119,4 @@ const CreateTripPage = () => {
     </Body>
   );
 }
-
 export default CreateTripPage;

@@ -7,59 +7,64 @@ import React, { useState } from "react";
 import Url_Base from "../../Constants/Url";
 
 const HomePage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const [optionLogin,setOptionLogin] = useState("Deslogado");
+  const [optionLogin, setOptionLogin] = useState("Deslogado");
+  const [form, setForm] = useState({ email: "", password: "" })
 
-  const onChangeEmail = (ev) => {
-    setEmail(ev.target.value);
-  };
-  const onChangePassword = (ev) => {
-    setPassword(ev.target.value)
-  };
-  const loginIn=()=>{
-    if(localStorage.getItem('token')){
-      navigate("/admin/trips/list")
-    }else{setOptionLogin("Logado")}
+
+  const onChangeInputs = (ev) => {
+    const name = ev.target.name
+    const value = ev.target.value
+    setForm({ ...form, [name]: value })
   }
-  const onSubmitLogin = () => {
-    const body = {
-      email: email,
-      password: password
-    };
 
-    axios.post(Url_Base+`/login`, body)
+  const loginIn = () => {
+    if (localStorage.getItem('token')) {
+      navigate("/admin/trips/list")
+    } else { setOptionLogin("Logado") }
+  }
+  const onSubmitLogin = (event) => {
+    event.preventDefault()
+    console.log("login realizado")
+    const body = form;
+
+    axios.post(Url_Base + `/login`, body)
       .then((res) => {
-        console.log("certo ",res.data)
-        localStorage.setItem('token',res.data.token)
+        console.log("certo ", res.data)
+        localStorage.setItem('token', res.data.token)
         navigate("/admin/trips/list")
       })
       .catch((er) => {
-        console.log("erro: ",er.response)
-        console.log(email,password)
+        console.log("erro: ", er.response)
+        alert("E-mail ou senha incorretos, tente novamente")
       })
   }
 
-  const login=()=>{
-    if(optionLogin==="Deslogado"){
-      return<button onClick={loginIn}>Admin</button>
-    }else if(optionLogin==="Logado"){
-      return<div>
-      <input
-        placeholder='E-mail'
-        type='email'
-        value={email}
-        onChange={onChangeEmail}
-      />
-      <input
-        placeholder='Password'
-        type='password'
-        value={password}
-        onChange={onChangePassword}
-      />
-      <button onClick={onSubmitLogin}>Enviar</button>
-    </div>
+  const login = () => {
+    if (optionLogin === "Deslogado") {
+      return <button onClick={loginIn}>Admin</button>
+    } else if (optionLogin === "Logado") {
+      return <form onSubmit={onSubmitLogin}>
+        <input
+          name="email"
+          placeholder='E-mail'
+          type='email'
+          value={form.email}
+          onChange={onChangeInputs}
+          required
+        />
+        <input
+          name="password"
+          placeholder='Password'
+          type='password'
+          value={form.password}
+          onChange={onChangeInputs}
+          minlength="6"
+          maxlength="6"
+          required
+        />
+        <button >Enviar</button>
+      </form>
     }
   }
   return (
