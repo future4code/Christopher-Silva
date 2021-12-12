@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import SelectTripsNames from "../../Constants/TripsListName";
 import Url_Base from "../../Constants/Url";
@@ -8,9 +8,9 @@ import { Body } from "../../Styled";
 import { BoxEnroll, EnrollBody, HeaderEnroll, SelectTravel } from "./AdminEnrollLayout";
 
 const CreateTripPage = () => {
-  const [idTrip, setIdTrip] = useState("")
+  let [idTrip, setIdTrip] = useState("")
   const token = localStorage.getItem('token')
-  const [tripDetail, setTripDetails] = useState("")
+  let [tripDetail, setTripDetails] = useState("")
   const [bodyApprove, setBodyApprove] = useState("")
   
   
@@ -26,15 +26,12 @@ const CreateTripPage = () => {
     }
     )
       .then((res) => {
-        console.log("certo do getTrip ", res.data.trip.candidates)
         setTripDetails(res.data.trip)
       })
       .catch((er) => {
-        console.log("erro do getTrip", er.response)
       })
   }
   const approveYes = (enrollId) => {
-    console.log("pegaID na função approv", enrollId)
     setBodyApprove(true)
     putEnroll(enrollId)
   }
@@ -43,11 +40,9 @@ const CreateTripPage = () => {
     putEnroll(enrollId)
   }
   const putEnroll = (enrollId) => {
-    console.log("estado do bodyApprove", bodyApprove)
     const body = {
       approve: bodyApprove
     }
-    console.log("id transferido para função put", enrollId)
     axios.put(Url_Base + `/trips/${idTrip}/candidates/${enrollId}/decide`, body, {
       headers: {
         auth: token
@@ -55,10 +50,8 @@ const CreateTripPage = () => {
     }
     )
       .then((res) => {
-        console.log("certo ", res.data)
       })
       .catch((er) => {
-        console.log("erro: do putEnroll ", er.response)
       })
   }
 
@@ -88,11 +81,9 @@ const CreateTripPage = () => {
     </BoxEnroll>
   })
 
-  console.log("detalhes das trips", tripDetail)
-
-  useEffect(() => {
-    getTripDet()
-  }, [idTrip])
+   useEffect(() => {
+    getTripDet();
+  }, [idTrip]) 
   return (
     <Body>
       <HeaderEnroll>

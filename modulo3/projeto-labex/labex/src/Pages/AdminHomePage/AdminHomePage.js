@@ -16,18 +16,15 @@ const AdminHomePage = () => {
   const [form,setForm]=useState({name:"",planet:"",date:"",description:"",durationInDays:""})
 
   const delTrip = (id) => {
-    console.log("pega id", id)
     axios.delete(Url_Base + `/trips/${id}`, {
       headers: {
         auth: token
       }
     })
       .then((res) => {
-        console.log("ok", res.data)
         window.location.reload()
       })
       .catch((err) => {
-        console.log("erre", err.data)
       })
   }
   const tripsListNames = allTrips.map((trip, index) => {
@@ -47,7 +44,6 @@ const AdminHomePage = () => {
 
   const CleanLocalStorage = () => {
     localStorage.setItem('token', "")
-    console.log(localStorage.getItem('token'))
     navigate("/")
   }
 
@@ -61,7 +57,6 @@ const AdminHomePage = () => {
     }
     )
       .then((res) => {
-        console.log("certo ", res.data)
         alert("Viagem criada com sucesso")
         window.location.reload()
       })

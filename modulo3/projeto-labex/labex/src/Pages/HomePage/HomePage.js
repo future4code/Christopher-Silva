@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import { BodyHome, BodyText, BoxTravelHome, ButtonTravel, CardTravelHome, HomeHeader, ImgLogo } from "./HomeLayout";
+import { BodyHome, BodyText, ButtonTravel, HomeHeader, ImgLogo } from "./HomeLayout";
 import RocketLogo from '../../Img/logo-rocket.png'
 import { Body } from "../../Styled";
 import axios from "axios";
@@ -7,10 +7,10 @@ import React, { useState } from "react";
 import Url_Base from "../../Constants/Url";
 
 const HomePage = () => {
+  
   const navigate = useNavigate();
   const [optionLogin, setOptionLogin] = useState("Deslogado");
   const [form, setForm] = useState({ email: "", password: "" })
-
 
   const onChangeInputs = (ev) => {
     const name = ev.target.name
@@ -25,17 +25,14 @@ const HomePage = () => {
   }
   const onSubmitLogin = (event) => {
     event.preventDefault()
-    console.log("login realizado")
     const body = form;
 
     axios.post(Url_Base + `/login`, body)
       .then((res) => {
-        console.log("certo ", res.data)
         localStorage.setItem('token', res.data.token)
         navigate("/admin/trips/list")
       })
       .catch((er) => {
-        console.log("erro: ", er.response)
         alert("E-mail ou senha incorretos, tente novamente")
       })
   }
@@ -67,6 +64,7 @@ const HomePage = () => {
       </form>
     }
   }
+
   return (
     <Body>
       <HomeHeader>
@@ -81,13 +79,6 @@ const HomePage = () => {
           <h3>De viagens pela NASA até foguetes Russos Clandestinos</h3>
           <ButtonTravel><Link to="/trips/list">Viagens</Link></ButtonTravel>
         </BodyText>
-        <div>
-          <CardTravelHome>
-            <BoxTravelHome>Viagem Disponivel</BoxTravelHome>
-            <BoxTravelHome>Viagem Disponivel</BoxTravelHome>
-            <BoxTravelHome>Viagem Disponivel</BoxTravelHome>
-          </CardTravelHome>
-        </div>
       </BodyHome>
     </Body>
   );

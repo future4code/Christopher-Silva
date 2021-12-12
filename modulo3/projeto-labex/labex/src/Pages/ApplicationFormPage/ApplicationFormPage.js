@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SelectTripsNames from "../../Constants/TripsListName";
 import Url_Base from "../../Constants/Url";
@@ -12,10 +12,7 @@ const AplicationFormPage = () => {
   const [idTrip, setIdTrip] = useState("")
   const [form, setForm] = useState({ name: "", age: "", applicationText: "", profession: "", country: "" })
   
-console.log("lista",allTrips[0].props.value)
-
   const creatEnroll = (event) => {
-    console.log(form)
     event.preventDefault()
     const body = form;
     axios.post(Url_Base + `/trips/${idTrip}/apply`, body)
@@ -35,6 +32,10 @@ console.log("lista",allTrips[0].props.value)
   const onChangeId = (ev) => {
     setIdTrip(ev.target.value);
   };
+
+  useEffect(() => {
+    allTrips[0] && setIdTrip(allTrips[0].props.value)
+}, [])
 
   return (
     <Body>
@@ -95,7 +96,6 @@ console.log("lista",allTrips[0].props.value)
           <button>Inscrever-se</button>
         </form>
       </BodyEnrollTrip>
-
     </Body>
   );
 }
