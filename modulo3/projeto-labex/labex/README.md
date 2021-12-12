@@ -10,10 +10,44 @@
 
 ## Alguns campos do projeto são:
 
-### - Pagina inicial(Home)
+### - Pagina inicial(Principal)
+  - Cabeçalho
+     * Logo.
+     * Botão admin para acessar login e senha, após login afetuado, botão admin passa direto para pagina Admin.
+  - Corpo
+     * Descrição básica do site e botão para acessar viagens.
 
+### - Pagina Admin(Principal)
+   - Cabeçalho
+     * Logo.
+     * Botão para acessar inscritos.
+     * Botões para voltar para pagina inicial e deslogar.
+  - Corpo
+     * Box esquerdo para criar viagens
+     * Box direito com lista de viagens com botão para excluir viagens
 
+### - Pagina Admin(inscritos)
+   - Cabeçalho
+     * Seletor de viagens
+     * Botão para retornar 
+   - Corpo
+     * Lado esquerdo box com dados da viagem selecionada e lista com inscritos aprovados
+     * lado direto lista de inscritos com detalhes da inscrição e botões para aprovar e reprovar.
 
+### - Pagina Viagens
+   - Cabeçalho
+     * Logo
+     * Botões para Voltar a página inicial e botão para inscrição de de candidatos para viagens
+   - Corpo
+     * Listas de viagens disponiveis com detalhes
+
+### - Pagina Inscrição
+   - Cabeçalho
+     * Botão para retornar a lista de viagens
+   - Corpo
+     * Seletor de viagens
+     * Box para cadastro de inscrição de canditatos
+     * Botão de inscrição
 
   ## Tecnologias usadas:
 ******************************
@@ -35,7 +69,9 @@
 
 
 ## Link Surge:
-[pastoral-skirt.surge.sh]
+[natural-digestion.surge.sh]
+Surge com problema, o login trava o projeto.
+Quando aberto pelo terminal o projeto roda totalmente funcional.
 
 
 ## Link Wireframe (esqueleto do site)
