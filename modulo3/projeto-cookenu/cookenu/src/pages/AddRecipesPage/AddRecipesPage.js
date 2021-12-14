@@ -1,10 +1,13 @@
 import React from "react"
+import { CardBoxAll } from "../../components/StyledAll";
+import useProtectPage from "../../hooks/useProtectionPage";
 
 const AddRecipesPage = () => {
+    useProtectPage()
     return (
-        <div>
+        <CardBoxAll>
             <h1>Cadastro de Receitas</h1>
-        </div>
+        </CardBoxAll>
                 ) 
 }
 export default AddRecipesPage;

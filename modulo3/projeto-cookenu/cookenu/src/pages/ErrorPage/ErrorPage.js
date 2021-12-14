@@ -1,10 +1,11 @@
 import React from "react"
+import { CardBoxAll } from "../../components/StyledAll";
 
 const ErrorPage = () => {
     return (
-        <div>
+        <CardBoxAll>
             <h1>Erro</h1>
-        </div>
+        </CardBoxAll>
                 ) 
 }
 export default ErrorPage;

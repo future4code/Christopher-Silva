@@ -1,10 +1,11 @@
+import { BackColorSite } from "./components/StyledAll";
 import Router from "./routes/Routes";
 
 const App = () => {
   return (
-    <div>
+    <BackColorSite>
       <Router />
-    </div>
+    </BackColorSite>
   );
 }
 export default App;

@@ -6,10 +6,12 @@ import RecipeDetailPage from "../pages/RecipeDetailPage/RecipeDetailPage"
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
+
 const Router = () => {
     return (
         <div>
             <BrowserRouter>
+           
                 <Routes>
                     <Route path="/" element={<LoginPage />} />
                     <Route path="/RecipesListPage" element={<RecipesListPage />} />
