@@ -8,7 +8,10 @@ import { ThemeProvider } from "@material-ui/core";
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Router />
+      <div>
+       <Router />  
+      </div>
+     
     </ThemeProvider>
   );
 }
