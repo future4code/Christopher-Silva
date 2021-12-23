@@ -2,7 +2,7 @@ import { Button} from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { login } from "../../service/useRequire";
-import { Inputs, InputsLogin, LoginContainer, ScreenContainer } from "../../components/Styled"
+import { Inputs, InputsLogin, CardContainer, ScreenContainer } from "../../components/Styled"
 
 
 const LoginPage = () => {
@@ -17,7 +17,7 @@ const LoginPage = () => {
 console.log("loclStorage",localStorage.token)
   return (
     <ScreenContainer>
-      <LoginContainer>
+      <CardContainer>
         <InputsLogin onSubmit={onSubmitForm}>
           <div>
             <Inputs
@@ -44,7 +44,7 @@ console.log("loclStorage",localStorage.token)
         </InputsLogin>
 
         <Link to="/RegisterPage"><h1>Criar nova conta</h1></Link>
-      </LoginContainer>
+      </CardContainer>
 
     </ScreenContainer>
   );

@@ -2,7 +2,7 @@ import { Button} from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { registUser } from "../../service/useRequire";
-import { Inputs, InputsLogin, LoginContainer, ScreenContainer } from "../../components/Styled"
+import { Inputs, InputsLogin, CardContainer, ScreenContainer } from "../../components/Styled"
 
 const RegisterPage = () => {
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ const RegisterPage = () => {
 
     return (
       <ScreenContainer>
-      <LoginContainer>
+      <CardContainer>
         <InputsLogin onSubmit={onSubmitForm}>
           
             <Inputs
@@ -51,7 +51,7 @@ const RegisterPage = () => {
           </Button>
         </InputsLogin>
 
-      </LoginContainer>
+      </CardContainer>
 
     </ScreenContainer>
     );

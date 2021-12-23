@@ -8,7 +8,7 @@ align-items:center;
 width:100vw;
 `
 
-export const LoginContainer = styled.div`
+export const CardContainer = styled.div`
 display:flex;
 flex-direction:column;
 border: 1px solid black;
