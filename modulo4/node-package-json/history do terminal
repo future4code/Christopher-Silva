@@ -1,0 +1,119 @@
+499  git checkout master
+  500  git checkout -b node-package-json
+  501  npm init
+  502  npm install -g npm
+  503  clear
+  504  npm run start
+  505  npm run start
+  506  npm run start
+  507  npm run start add 2 2
+  508  npm run start add 2 2
+  509  npm run start add 2 2
+  510  npm run start add 2 2
+  511  npm run start add 2 2
+  512  npm run start add 2 2
+  513  npm run start add 2 2
+  514  npm run start add 2 2
+  515  npm run start add 2 2
+  516  npm run start add 2 2
+  517  npm run start add 2 2
+  518  npm run start add 2 2
+  519  npm run start add 2 2
+  520  npm run start add 2 2
+  521  npm run start add 2 2
+  522  npm run start add 2 2
+  523  npm run start add 2 2
+  524  npm run start add 2 2
+  525  npm run start add 2 2
+  526  npm run start "add" 2 2
+  527  npm run start add 2 2
+  528  npm run start add 2 2
+  529  npm run start add 2 2
+  530  npm run start add 2 2
+  531  npm run start add 2 2
+  532  npm run start add 2 4
+  533  npm run start mult 2 8
+  534  npm run start "Varrer Patio"
+  535  npm run start "Varrer Patio"
+  536  npm run start "Varrer Patio"
+  537  npm run start "Varrer Patio"
+  538  cd exercicio-1
+  539  mkdir exercicio-1
+  540  mkdir exercicio-2
+  541  mkdir exercicio-3
+  542  cd exercicio-1
+  543  npm init--yes
+  544  npm init --yes
+  545  touch exercicio1.js
+  546  npm run start
+  547  npm run start
+  548  npm run start
+  549  npm run start
+  550  npm run start
+  551  npm run start
+  552  cd exercicio-2
+  553  cd ./exercicio-2
+  554  cd ../exercicio-2
+  555  npm init --yes
+  556  touch exercicio2
+  557  git rm exercicio2
+  558  touch exercicio2.js
+  559  npm run start div 20 5
+  560  cd ../exercicio-3
+  561  npm init --yes
+  562  mkdir exercicio3.js
+  563  touch exercicio3.js
+  564  npm run start "varrer patio"
+  565  cd ../exercicio-1
+  566  npm run start
+  567  npm run start
+  568  npm run strt
+  569  npm run start
+  570  npm run start
+  571  npm run start
+  572  npm run start
+  573  npm run start Christopher 38 15
+  574  npm run start Christopher 21
+  575  npm run start Christopher
+  576  npm run start Christopher
+  577  npm run start Chris 38 21
+  578  cd ../exercicio-2
+  579  npm run start
+  580  npm run start add boi
+  581  npm run start
+  582  npm run start add 21
+  583  npm run start add 21
+  584  npm run start add boi
+  585  npm run start add boi 21
+  586  npm run start add boi 2
+  587  npm run start
+  588  npm run start add 21 33
+  589  npm run start add 21 33
+  590  npm run start add 33 45
+  591  npm run start sub 40 20
+  592  npm run start 40
+  593  npm run start sub 40
+  594  npm run start sub 40
+  595  npm run start div 100 10
+  596  npm run start sub 50 23
+  597  npm run start
+  598  npm run start
+  599  npm run start
+  600  npm run start
+  601  npm run start
+  602  npm run star add 3 4
+  603  npm run start add 3 4
+  604  npm run start add 3 4
+  605  pm run start add 3 4
+  606  npm run start add 3 4
+  607  npm run start add 3 4
+  608  npm run start add 3 4
+  609  npm run start add 3 4
+  610  npm run start add 3 4
+  611  npm run start add 3 4
+  612  npm run start add 3 4
+  613  npm run start add 3 4
+  614  cd ../exercicio1
+  615  cd ../exercicio-1
+  616  npm run start
+  617  history
