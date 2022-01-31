@@ -1,0 +1,262 @@
+
+
+-->Exercício 1
+
+
+Começaremos pela tabela de atores. Nós vamos guardar as seguintes informações:
+ id, nome, salário, data de nascimento e sexo
+
+Abaixo está a query que cria essa tabela no MySQL
+
+```sql
+CREATE TABLE Actor (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR (255) NOT NULL,
+    salary FLOAT NOT NULL,
+    birth_date DATE NOT NULL,
+    gender VARCHAR(6) NOT NULL
+);
+```
+
+*a) Nesta tabela, utilizamos o `FLOAT` para declarar o salário,
+ porque esta é uma forma de representar um número não inteiro em uma tabela.
+ Explique os demais comandos que estão nessa query.*
+
+CREATE TABLE - Cria uma nova tabela
+VARCHAR(255) - strings de no máximo n caracteres
+PRIMARY KEY - Identificador único
+NOT NULL - Parametro deve ser informado, não pode passar em branco
+FLOAT -  é uma forma de representar um número não inteiro em uma tabel
+DATE - representa uma data
+
+
+*b) O comando `SHOW` é bem útil para nos prover informações sobre bancos, tabelas, e mais. Utilize os comandos:
+ `SHOW DATABASES` e `SHOW TABLES`. Explique os resultados.*
+
+`SHOW DATABASES` - mostrou a DATABASE que estamos utilizando
+`SHOW TABLES` - mostra o nome das tabelas criadas
+
+*c) O comando `DESCRIBE` pode ser usado para ver estrutura de uma tabela.
+ Utilize o comando  `DESCRIBE Actor` e explique os resultados.*
+
+`DESCRIBE Actor` - mostrou todos detalhes sobre a tabela, nome da coluna, tipo, etc...
+
+
+--> Exercício 2
+O próximo passo é colocar dados nessa tabela. Vamos começar criando a linha de um ator brasileiro muito famoso.
+
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "001", 
+  "Tony Ramos",
+  400000,
+  "1948-08-25", 
+  "male"
+);
+
+Atente-se a 3 fatos nessa query:
+
+1. A ordem dos valores (`VALUES`) é definida pela lista colocada depois do nome da tabela (`ACTOR`): `(id, name, salary, birth_date)`.
+2. Os valores `VARCHAR` (strings) devem ser indicados com `"`
+3. As datas seguem o padrão: `YYYY-MM-DD`
+
+*a) Escreva uma query que crie a atriz `Glória Pires`, com o id `002`, salário R$1.200.000 e data de nascimento 23 de Agosto de 1963*
+ ERRO - de sintaxe quando passado a pontuação no salário.
+ ERRO - A contagem de colunas não corresponde à contagem de valores na linha 1, faltou informar o sexo
+
+b) *Escreva uma query que tente adicionar um outro elemento a tabela com o mesmo id do item anterior `002`.
+ Isso gerará um erro. Anote a mensagem de erro, traduza (pode usar o Google Tradutor diretamente) e explique porque esse erro aconteceu.*
+
+Código de erro: 1062. Entrada duplicada '002' para a chave 'PRIMARY' 
+
+*Tente usar as queries abaixo. Você vai reparar que elas vão gerar um erro. Anote as mensagens de erro,
+ traduza (pode usar o Google Tradutor diretamente) e explique porque esses erros aconteceram. Por fim, 
+corrija individualmente cada query para que funcione, teste o comando e anote-o também como resposta*
+
+c)
+INSERT INTO Actor (id, name, salary)
+VALUES(
+  "003", 
+  "Fernanda Montenegro",
+  300000,
+  "1929-10-19", 
+  "female"
+);
+
+Código de erro: 1136. A contagem de colunas não corresponde à contagem de valores na linha 1
+
+Solução - informar todas colunas equivalente  cada informação na linha 1
+
+D)
+INSERT INTO Actor (id, salary, birth_date, gender)
+VALUES(
+  "004",
+  400000,
+  "1949-04-18", 
+  "male"
+);
+
+Código de erro: 1364. O campo 'nome' não tem um valor padrão
+
+Solução - retirar a restrição de tipo do nome "NOT NULL" - ou mais correto, informar o nome, tanto nas descrições quanto no parametros da linha 1
+
+e)
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "005", 
+  "Juliana Paes",
+  719333.33,
+  1979-03-26, 
+  "female"
+);
+
+Código de erro: 1292. Valor de data incorreto: '1950' para a coluna 'birth_date' na linha 1
+
+Solução - adicionar aspas na data de nascimento
+
+f)Por fim, crie mais um ator e mais uma atriz e prossiga para os próximos exercícios.
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "003", 
+  "Fernanda Montenegro",
+  300000,
+  "1929-10-19", 
+  "female"
+);
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "004", 
+  "Antônio Fagundes",
+  400000,
+  "1949-04-18", 
+  "male"
+);
+
+
+--> Exercício 3
+Com os dados criados, podemos nos aventurar nas queries de seleção de dados.
+ Elas são indicadas pelo operador `SELECT`. Talvez a query mais famosa que existe é:
+
+```sql
+SELECT * FROM Actor
+```
+
+Ela faz com que se retornem todas as **colunas** (ou "informações") de todas as **linhas** (ou "entradas") da nossa tabela. 
+
+Se quisermos limitar as **colunas**, devemos indicar assim logo após o operador `SELECT`. 
+Abaixo, está uma query que retorna somente o `id`e o `salário`de todos os atores
+
+```sql
+SELECT id, salary from Actor 
+```
+
+Agora, se quisermos colocar uma condição para retornar as **linhas** (entradas), 
+devemos usar o operador `WHERE` e colocar a nossa condição que pode usar alguns operadores (`=`, `!=`, `>`, etc).
+ Abaixo, está uma query que retorna somente o id e o nome dos atores.
+
+SELECT id, name from Actor WHERE gender = "male"
+
+a) Escreva uma query que retorne todas as informações das atrizes
+
+SELECT * from Actor WHERE gender = "female"
+
+
+b) Escreva uma query que retorne o salário do ator com o nome Tony Ramos
+
+SELECT salary from Actor WHERE name = "Tony Ramos"
+
+c) *Escreva uma query que retorne todas as informações que tenham o `gender` com o valor `"invalid"`. Explique o resultado.*
+Retornou uma tabela vazia pois não existe `gender` com o valor `"invalid"`
+
+d) Escreva uma query que retorne o id, nome e salário de todos que tenham o salário com o valor máximo de R$500.000
+com o ponto depois dos 3 primeiros digitos, retornou todos atores, pois o formato dos salários está sem, quando retirado a pontuação retorna o solicitado
+
+e) Tente usar a query abaixo. Você vai reparar que ela vai gerar um erro. Anote a mensagem de erro,
+traduza (pode usar o Google Tradutor diretamente) e explique porque esse erro aconteceu. Por fim,
+ corrija individualmente a query para que funcione, teste o comando e anote-o também como resposta
+
+SELECT id, nome from Actor WHERE id = "002"
+Código de erro: 1054. Coluna desconhecida 'nome' na 'lista de campos'
+solução arrumar o nome da coluna
+
+retorno - 002	Glória Pires
+resposta - 1 row(s) returned
+
+
+--> Exercício 4
+
+Para finalizar o nosso estudo nas tabelas de atores, vamos fazer uma query mais complexa. Queremos encontrar todos os atores e atrizes:
+
+- cujos nomes começam com "A" ou "J"; e
+- cujos salários são maiores do que R$300.000
+
+Para fazer a primeira parte, vamos usar o comparador `LIKE`, que permite comparar strings. 
+Para verificar se uma palavra começa com a letra "A", usamos a sintaxe: `LIKE "A%"` porque `%` indica uma string genérica.
+ O operador "ou" é indicado por `OR`. Assim, a primeira condição é indicada por: `WHERE name LIKE "A%" OR name LIKE "J%"`. 
+
+Já a segunda parte é simples: `salary > 300000`. O que pode confundir é o operador lógico "e" (`AND`). 
+A ideia aqui é que todos os atores terão o salário maior do que R$300.000, mas seus nomes poderão começar com o "A" ou "J". 
+Dessa forma, a query vai ficar dessa forma (preste atenção nos parênteses):
+
+SELECT * FROM Actor
+WHERE (name LIKE "A%" OR name LIKE "J%") AND salary > 300000
+
+Assim como o `LIKE` existem os operadores: 
+
+- `BETWEEN`: permite verificar se um valor está entre dois: `BETWEEN valor1 AND valor2`.
+- `NOT`: que indica uma negação de comparação. Pode ser usado antes de outros operadores como: `NOT LIKE`, `NOT BETWEEN`
+
+a) *Explique com as suas palavras a query acima* = WHERE (name LIKE "A%" OR name LIKE "J%") AND salary > 300000
+entre parentes as duas condições das iniciais do nome e salário maior que ...
+
+b) *Escreva uma query com os atores que não comecem com a letra "A" e tenham o salário maior do que R$350.000,00*
+WHERE name NOT LIKE "A%"  AND salary > 350000;
+
+c) *Escreva uma query com os atores que possuam "G" ou "g" em qualquer parte do nome.* 
+SELECT * FROM Actor
+WHERE name LIKE "%A%" OR name LIKE "%a%";
+
+d) *Escreva uma query com os atores que tenham a letra "a" ou "A" ou "g" ou "G" no nome e o salário entre R$350.000,00 e R$900.000,00*
+SELECT * FROM Actor
+WHERE 
+	(name LIKE "%g%" OR name LIKE "%G%" OR name LIKE "%a%" OR name LIKE "%A%")
+  AND salary BETWEEN 350000 AND 900000;
+
+
+-->Exercício 5
+
+a) *Escreva a query que cria essa tabela. Para sinopse, utilize o tipo `TEXT`, pesquise sobre ele se precisar. Explique a query resumidamente.*
+
+*Crie 4 filmes com as seguintes informações:*
+
+
+--> Exercício 6
+a)
+SELECT id, name, sinopse from Movie WHERE id = "004";
+
+b)
+SELECT * from Movie WHERE name = "Alto da Compadecida";
+
+c)
+SELECT id, name, sinopse from Movie WHERE rating > "7";
+
+--> Exercício 7
+a)
+SELECT * FROM Movie
+WHERE name LIKE "%vida%";
+
+b)
+SELECT * from Movie WHERE name LIKE "%Doce%" OR sinopse LIKE "%Zé%";
+
+c) e d)
+SELECT * FROM Movie
+WHERE release_date < "2022-01-31" AND 
+      (name LIKE "%de%" OR
+      sinopse LIKE "%de%") AND rating > 7;
+
+
+
+
+
+
+	
