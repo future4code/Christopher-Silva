@@ -1,0 +1,110 @@
+--> Exercício 1
+
+a) ALTER TABLE Actor DROP COLUMN salary;
+R. excluir uma coluna de uma tabela
+
+b) ALTER TABLE Actor CHANGE gender sex VARCHAR(6);
+R.  Redeclara colunas por completo
+
+c)ALTER TABLE Actor CHANGE gender gender VARCHAR(255);
+R. Altera o type da coluna gender
+
+d)Agora,  altere a coluna gender da tabela ACTOR para que ele aceite strings com até 100 caracteres
+R. ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
+
+
+--> Exercício 2
+
+a) *Escreva uma query que atualize o nome e a data de nascimento do ator com o id `003`*
+R. UPDATE Actor
+   SET name = "Moacyr Franco", birth_date = "2020-02-10"
+   WHERE id = "123";
+
+b) *Escreva uma query que atualize o nome da atriz `Juliana Paes` para `JULIANA PAES`.
+ Então, escreva outra query para voltar ao nome anterior.*
+R. UPDATE Actor
+SET name = "Fernanda Montenegro"
+WHERE name = "Fernanda Monteclaro";
+
+
+c) *Escreva uma query que atualize todas as informações do ator com o id `005`*
+R. UPDATE Actor
+SET name = "Burgão", salary = "400000", birth_date = "1963-08-23", gender = "indefinido"
+WHERE id = "005";
+
+
+d) *Escreva uma query em que você tente atualizar um dado da tabela que não existe (com um id inválido, por exemplo).
+ Teste, anote e explique o resultado.*
+R. 0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0
+Código funciona, porem retorna 0 alterações, porque não foi encontrado o id que foi passado.
+
+
+--> Exercício 3
+a) *Escreva uma query que apague a atriz com o nome `Fernanda Montenegro`*
+R. DELETE FROM Actor WHERE name = "Fernanda Montenegro"
+
+b) *Escreva uma query que apague todos os atores (do gênero `male`) com o salário maior do que R$1.000.000,00*
+R. DELETE FROM Actor WHERE genery = "male" and salary > 1000000;
+
+--> Exercício 4
+
+a) *Escreva uma query que pegue o maior salário de todos os atores e atrizes*
+R. SELECT MAX(salary) FROM Actor;
+
+b) *Escreva uma query que pegue o menor salário das atrizes*
+R. SELECT MIN(salary) FROM Actor WHERE gender = "female";
+
+c) *Escreva uma query que pegue a quantidade de atrizes*
+R. SELECT COUNT(*) FROM Actor WHERE gender = "female";
+
+
+d) *Escreva uma query que pegue a soma de todos os salários*
+R. SELECT SUM(salary) FROM Actor;
+
+--> Exercício 5
+
+a) *Releia a última query. Teste-a. Explique o resultado com as suas palavras*
+R, SELECT COUNT(*), gender
+   FROM Actor
+   GROUP BY gender;
+Seleciona a contagem da coluna "gender" da tabela "Actor" e agrupa pelo retorno do genero, ou seja,
+ faz uma contagem de quantos tem o mesmo retorno
+
+
+b) *Faça uma query que retorne somente o id e o nome dos atores em ordem decrescente alfabética*
+R. SELECT id, name from Actor ORDER BY name DESC;
+
+c) *Faça uma query que retorne todos os atores ordenados pelo salário*
+R. SELECT * from Actor ORDER BY salary;
+
+d) *Faça uma query que retorne os atores com os três maiores salarios*
+R. SELECT * from Actor ORDER BY salary DESC LIMIT 3;
+
+e) *Faça uma query que retorne a média de salário por gênero*
+R. SELECT AVG(salary), gender FROM Actor
+   GROUP BY gender;
+
+--> Exercício 6
+
+a)
+
+```sql
+ALTER TABLE Movie ADD playing_limit_date DATE;
+```
+
+b)
+
+```sql
+ALTER TABLE Movie CHANGE rating rating FLOAT;
+```
+
+c) Uma das queries
+
+```sql
+UPDATE Movie
+SET
+	playing_limit_date = "2020-12-31"
+WHERE id = "001"
+```
+
+d)
