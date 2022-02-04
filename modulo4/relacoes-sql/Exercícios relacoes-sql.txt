@@ -1,0 +1,83 @@
+--> Exercício 1
+
+*a) Explique o que é uma chave estrangeira*
+R. Chave estrangeira relaciona o item de uma tabela com um item de outra tabela
+
+
+*b) Crie a tabela e, ao menos, uma avaliação para cada um dos filmes*
+R.
+INSERT INTO Rating VALUES
+("001", "Muito Bom",8.5,"001"),
+("002", "Bom tbem",7.5, "002"),
+("003", "Brega",7,"003"),
+("004","Muito Bom", 9, "004") 
+
+*c) Tente criar uma avaliação para um filme que não existe (ou seja, um id inválido).
+ Anote e explique o resultado da query.*
+
+ Código de erro: 1452. Não é possível adicionar ou atualizar uma linha filho:
+ uma restrição de chave estrangeira falha (`carver-christopher-feilstrecker`.`Rating`,
+ CONSTRAINT `Rating_ibfk_1` FOREIGN KEY (`movie_id`) REFERÊNCIAS `Movie` (`id` ))
+
+R. Não é possivel criar uma chave estrangeira para um item que não existe
+
+
+d) *Altere a tabela de filmes para que ela não tenha mais uma coluna chamada rating.*
+R. ALTER TABLE Movie DROP COLUMN rating;
+
+*e) Tente apagar um filme que possua avaliações. Anote e explique o resultado da query.*
+DELETE FROM Movie WHERE id = "001";
+
+Código de erro: 1451. Não é possível excluir ou atualizar uma linha pai:
+ uma restrição de chave estrangeira falha (`carver-christopher-feilstrecker`.`Rating`, 
+CONSTRAINT `Rating_ibfk_1` FOREIGN KEY (`movie_id`) REFERÊNCIAS `Movie` (`id` ))
+
+Falha ao tentar excluir item pois ele é referenciado em uma restrição de chave estrangeira
+
+--> Exercício 2
+CREATE TABLE MovieCast (
+		movie_id VARCHAR(255),
+		actor_id VARCHAR(255),
+    FOREIGN KEY (movie_id) REFERENCES Movie(id),
+    FOREIGN KEY (actor_id) REFERENCES Actor(id)
+);
+*a) Explique, com as suas palavras, essa tabela*
+É uma tabela para relacionar elementos de uma tabela com varios outro de outra
+
+
+*b) Crie, ao menos, 6 relações nessa tabela* 
+INSERT INTO MovieCast VALUES
+("001","001" ), ("001" ,"002" ) , ("002" ,"004" ) , ("003" ,"005" ) , ("004" ,"006" ) , ("003" ,"006" );
+
+
+*c) Tente criar uma relação com um filme ou um ator inexistente. Anote e explique o resultado da query*
+Código de erro: 1452. Não é possível adicionar ou atualizar uma linha filho: 
+uma restrição de chave estrangeira falha (`carver-christopher-feilstrecker`.`MovieCast`,
+ CONSTRAINT `MovieCast_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `Actor` (`id` ))
+
+R. Não é possivel adicionar uma restrição para chave estrangeira falha, ou seja, que não existe.
+
+
+*d) Tente apagar um ator que possua uma relação nessa tabela. Anote e explique o resultado da query*
+
+Código de erro: 1451. Não é possível excluir ou atualizar uma linha pai: uma restrição de chave estrangeira falha
+ (`carver-christopher-feilstrecker`.`MovieCast`, CONSTRAINT `MovieCast_ibfk_2`
+ FOREIGN KEY (`actor_id`) REFERENCES `Actor` (`id` ))
+
+R. Não é possivel excluir um elemento que adicionado a uma chave estrangeira de outra tabela,
+
+
+--> Exercício 3
+SELECT * FROM Movie 
+INNER JOIN Rating ON Movie.id = Rating.movie_id;
+
+*a) Explique, com suas palavras, a query acima. O que é o operador `ON`?*
+operador ON é de condicional, em que Movie.id 'corresponda' a Rating.movie_id
+
+*b) Escreva uma query que retorne somente o nome, id e nota de avaliação dos filmes que já foram avaliados.*
+
+SELECT Movie.id, name, Rating.rate  FROM Movie 
+INNER JOIN Rating ON Movie.id = Rating.movie_id;
+
+
+
