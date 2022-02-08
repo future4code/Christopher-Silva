@@ -1,0 +1,43 @@
+
+GET http://localhost:3003/users
+Content-Type: application/json
+//busca todos usuários
+###
+
+GET http://localhost:3003/users/byname?name=João
+Content-Type: application/json
+//busca usuários pelo nome por query.params 
+###
+
+GET http://localhost:3003/users/bytype/:type
+Content-Type: application/json
+//busca usuário pelo tipo por path.params 
+###
+
+GET http://localhost:3003/users/ordenation?sort=type
+Content-Type: application/json
+//ordena a lista de usuário por type ou name
+// (caso não tenha uma destas duas opções por padrão ordena por e-mail) 
+###
+
+GET http://localhost:3003/users/pagination?page=2
+Content-Type: application/json
+// trás de 5 em 5 usuários por número de página informada
+###
+
+GET http://localhost:3003/users/allfunctionalities?=
+Content-Type: application/json
+// Agrega todas funcionalidades podendo ser informado
+// as duas filtragens, a ordenação e a paginação
+//
+//- Caso o usuário não forneça parâmetro de filtragem, o endpoint busque todos os users;
+// filtragem por "name" (?name='nome-do-usuário'), por type (?type='tipo-do-usuário') ou por padrão trás todos usuários
+
+//- Caso o usuário não forneça parâmetro de ordenação, o endpoint ordene por **nome** em ordem **decrescente;**
+//ordenação por "email"(?sort=email), por "type"(?sort=type) ou por padrão ordena pelo nome
+//para ordenação crescente -> (?order=ASC) ou por padrão decrescente
+
+//- Caso o usuário não forneça número de página, deve começar na página 1
+// paginação de 5 usuários pelo numero da página fornecendo -> (?page=2), ou por padrão a página 1
+
+###
