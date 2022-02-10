@@ -2,7 +2,7 @@
 
 
 ## Nome do desenvolvedor: 🤖
-- ## Christopher Feilstrecker da Silva
+-  Christopher Feilstrecker da Silva
 
 ## Tecnologias utilizadas: 🖥️
 - Typescript
