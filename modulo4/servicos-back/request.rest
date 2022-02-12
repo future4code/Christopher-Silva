@@ -1,0 +1,17 @@
+
+GET http://localhost:3003/users
+Content-Type: application/json
+{
+    "cep":"93415-560"
+}
+//Retorna o endereço conforma o CEP enviado
+###
+
+GET http://localhost:3003/users/byname?name=João
+Content-Type: application/json
+{
+    "cep":"93415-560",
+    "number":"2344"
+}
+//salva o endereço do usuário no banco de dados conforme cep enviado
+###
