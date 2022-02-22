@@ -1,0 +1,28 @@
+put http://localhost:3003/users 
+Content-Type: application/json 
+Authorization: token
+
+{ 
+    "name": "Brito",
+    "nickname":"Nico"
+}
+###
+
+Post http://localhost:3003/users/login
+ Content-Type: application/json 
+{
+   "name": "Brito",
+   "password": "123456"
+}
+
+###
+
+Post http://localhost:3003/user/signup Content-Type: application/json
+
+{ 
+    "name":"Brito",
+    "nickname":"Bri",
+    "email":"bri@gmail.com",
+    "password":"123456",
+    "role":"ADMIN"
+}
