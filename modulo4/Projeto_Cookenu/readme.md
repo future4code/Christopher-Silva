@@ -4,10 +4,10 @@
 
 
 ## Documentação API:
- Acesse o postman aqui 👉 [ <img src="https://comeaqui.files.wordpress.com/2011/04/garfieldbomdegarfo.gif" width="70" align="center"> ](https://documenter.getpostman.com/view/18386367/UVkjvHpB)
+ Acesse o postman aqui 👉 [ <img src="https://comeaqui.files.wordpress.com/2011/04/garfieldbomdegarfo.gif" width="70" align="center"> ](https://documenter.getpostman.com/view/18385085/UVkpQGUM)
 
 ## Deploy no Heroku:
-[https://cookenu-api-carver.herokuapp.com/]
+[https://cookenu-api-carver.herokuapp.com/] NÃO FUNCIONA
 
 ## Desenvolvedor 🤖
 
