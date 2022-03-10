@@ -1,4 +1,7 @@
 import knex from "knex"
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export default abstract class BaseDatabase{
     protected static connection = knex({
