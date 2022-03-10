@@ -1,0 +1,78 @@
+POST http://localhost:3003/users/signup 
+Content-Type: application/json 
+
+{ 
+	"name": "Teste3",
+	"email": "teste3@lbn.com",
+	"password": "123456",
+    "role":"User"
+}
+###
+
+POST  http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjN2IzNjNhLTc4ZmYtNGZkNC05ZjU0LWZiMWJlYmI4N2JlMiIsImlhdCI6MTY0NTgwNjE4NCwiZXhwIjoxNjQ1ODkyNTg0fQ.lcRobWRCHXROvZ0EvjSZBHK9krkJziTezAixz6ItaVg
+ //"token de autenticação"
+
+{
+	"title": "Nome da Receita3",
+	"description": "descrição da receita3"
+}
+
+###
+
+GET   http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjN2IzNjNhLTc4ZmYtNGZkNC05ZjU0LWZiMWJlYmI4N2JlMiIsImlhdCI6MTY0NTgwNjE4NCwiZXhwIjoxNjQ1ODkyNTg0fQ.lcRobWRCHXROvZ0EvjSZBHK9krkJziTezAixz6ItaVg
+ //"token de autenticação"
+
+###
+
+GET   http://localhost:3003/user/:id 
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjN2IzNjNhLTc4ZmYtNGZkNC05ZjU0LWZiMWJlYmI4N2JlMiIsImlhdCI6MTY0NTgwNjE4NCwiZXhwIjoxNjQ1ODkyNTg0fQ.lcRobWRCHXROvZ0EvjSZBHK9krkJziTezAixz6ItaVg
+
+###
+
+GET  http://localhost:3003/recipe/:id
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjN2IzNjNhLTc4ZmYtNGZkNC05ZjU0LWZiMWJlYmI4N2JlMiIsImlhdCI6MTY0NTgwNjE4NCwiZXhwIjoxNjQ1ODkyNTg0fQ.lcRobWRCHXROvZ0EvjSZBHK9krkJziTezAixz6ItaVg
+
+###
+
+GET  http://localhost:3003/user/feed
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjN2IzNjNhLTc4ZmYtNGZkNC05ZjU0LWZiMWJlYmI4N2JlMiIsImlhdCI6MTY0NTgxMjAyMCwiZXhwIjoxNjQ1ODk4NDIwfQ.XhRlBbwFSmZigVL8Yd1Xk5pPi5Tm03BhGjagBxBqilY
+
+###
+
+POST   http://localhost:3003/user/follow
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjN2IzNjNhLTc4ZmYtNGZkNC05ZjU0LWZiMWJlYmI4N2JlMiIsImlhdCI6MTY0NTgwNjE4NCwiZXhwIjoxNjQ1ODkyNTg0fQ.lcRobWRCHXROvZ0EvjSZBHK9krkJziTezAixz6ItaVg
+
+{
+	"userToFollowId": "0fe9a68b-1c8c-42b6-9766-79e9bc271464"
+}
+
+###
+
+POST  http://localhost:3003/login
+Content-Type: application/json
+
+{
+	"email": "bruno@lbn.com",
+	"password": "123456"
+}
+
+###
+
+POST  http://localhost:3003/user/unfollow
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjN2IzNjNhLTc4ZmYtNGZkNC05ZjU0LWZiMWJlYmI4N2JlMiIsImlhdCI6MTY0NTgwNjE4NCwiZXhwIjoxNjQ1ODkyNTg0fQ.lcRobWRCHXROvZ0EvjSZBHK9krkJziTezAixz6ItaVg
+
+{
+	"userToUnfollowId":"0fe9a68b-1c8c-42b6-9766-79e9bc271464"
+}
+
+
+###
