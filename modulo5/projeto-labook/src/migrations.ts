@@ -38,7 +38,7 @@ export const createTables = async (): Promise<boolean> => {
            `);
 
         console.log("Tabelas criadas com sucesso!");
-        insertUsers()
+        populatTables()
         return true;
     } catch (e) {
         const error = e as Error;
@@ -48,18 +48,18 @@ export const createTables = async (): Promise<boolean> => {
 };
 
 
-const insertUsers = async (): Promise<boolean> => {
+const populatTables = async (): Promise<boolean> => {
     try {
         await connection.raw(`
         INSERT INTO labook_users VALUES (
             "05",
             "Thor",
             "thorrt@gmail.com",
-            "123456"
+            "$2a$12$LY7WTl2e1STwRMSwr/6VYeDRzHccEM.wxngXsRycgiqY/Pst0daRy"
             ),("07",
             "Thor",
             "thorrrrt@gmail.com",
-            "123456");
+            "$2a$12$LY7WTl2e1STwRMSwr/6VYeDRzHccEM.wxngXsRycgiqY/Pst0daRy");
 
             INSERT INTO labook_posts VALUES (
                 "001",
@@ -91,3 +91,4 @@ const insertUsers = async (): Promise<boolean> => {
 const closeConnection = () => { connection.destroy(); };
 
 
+createTables()

@@ -7,10 +7,7 @@ import PostData from './data/PostData2'
 import UserData from './data/UserData2'
 import { Authenticator } from './services/Authenticator'
 import { HashManager } from './services/HashManager'
-import { IdGenerator } from './services/IdGenerator'
-import {createTables}   from "./data/migration/migration"
-
-//createTables() //migration para criar e populartabelas 
+import { IdGenerator } from './services/IdGenerator' 
 
 const userController = new UserController(
     new UserBusiness(
@@ -29,7 +26,7 @@ const postController = new PostController(
     )
 )
 
+app.get("/post/:id", postController.getPostById)
 app.post("/user/signup", userController.signup)
 app.post("/user/login", userController.login)
-
 app.post("/post/new", postController.newPost)

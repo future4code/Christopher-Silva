@@ -44,4 +44,24 @@ export default class PostBusiness {
         return 
     }
 
+    getPostById = async (post_id: string,token:string) => {
+          
+        if (!post_id ) {
+            throw new Error("post_id não enviado")
+        }
+        if (!token) {
+            throw new Error("token não enviado")
+        }
+
+        const tokenData:any = await new Authenticator().getTokenData(token)
+
+        if (!tokenData) {
+            throw new Error("token invalido")
+        }
+    
+        const post = await this.postData.postById(post_id)
+
+        return post
+    }
+
 }

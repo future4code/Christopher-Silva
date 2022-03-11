@@ -1,7 +1,6 @@
 import {Request, Response} from 'express'
 import PostBusiness from '../business/PostBusiness'
 import { PostInputDTO } from '../model/post'
-import { LoginInputDTO, SignupInputDTO } from '../model/user'
 
 export default class PostController{
     constructor(
@@ -29,20 +28,18 @@ export default class PostController{
         }
     }
 
-    login = async (req: Request, res:Response) =>{
-        const {email, password} = req.body
+    getPostById = async (req: Request, res:Response) =>{
+        const post_id = req.params.id
+        const token = req.headers.authorization as string
 
-        const input: LoginInputDTO = {
-            email,
-            password
-        }
         try{
-           // const token = await this.userBusiness.login(input)
+             
+            const post = await this.postBusiness.getPostById(post_id,token)
 
-            res.status(200).send({message: "Post criado com sucesso"})
+            res.status(200).send({ post })
         }catch(error:any){
             if(error.message) return res.status(400).send(error.message)
-            res.status(400).send("Erro no login")
+            res.status(400).send("Erro no signup")
         }
     }
 }

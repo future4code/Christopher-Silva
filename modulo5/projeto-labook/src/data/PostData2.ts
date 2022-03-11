@@ -15,5 +15,15 @@ export default class PostData extends BaseDatabase{
         }
     }
 
+    postById = async (post_id: string) =>{
+        try{
+           return await BaseDatabase
+            .connection(this.TABLE)
+            .where( 'id', 'like', `%${post_id}%`)
+        }catch(error){
+            throw new Error("Erro ao criar postagem no banco de dados")
+        }
+    }
+
     
 }
