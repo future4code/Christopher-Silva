@@ -19,6 +19,7 @@ export default class UserBusiness {
             throw new Error("Campos inválidos")
         }
 
+
         const registeredUser = await this.userData.findByEmail(email)
         if (registeredUser) {
             throw new Error("Email já cadastrado")

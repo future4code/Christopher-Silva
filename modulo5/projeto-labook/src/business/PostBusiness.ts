@@ -22,6 +22,12 @@ export default class PostBusiness {
             throw new Error("token não enviado")
         }
 
+        if (type != "NORMAL") {
+            if (type != "ADMIN") {
+            throw new Error("type deve ser 'NORMAL' ou 'ADMIN'")
+            }
+        }
+
         const tokenData:any = await new Authenticator().getTokenData(token)
 
         if (!tokenData) {

@@ -4,10 +4,10 @@
 
 
 ## Documentação API:
- Acesse o postman aqui 👉 [ <img src="https://cdn-icons-png.flaticon.com/512/3893/3893170.png" width="70" align="center"> ](https://documenter.getpostman.com/view/18385085/UVkpQGUM)
+ Acesse o postman aqui 👉 [ <img src="https://cdn-icons-png.flaticon.com/512/3893/3893170.png" width="70" align="center"> ](https://documenter.getpostman.com/view/18385085/UVsHUnyw)
 
 ## Deploy no Heroku:
-[] 
+[https://labook-api-carver.herokuapp.com] 
 
 ## Desenvolvedor 🤖
 

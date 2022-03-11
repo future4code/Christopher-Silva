@@ -13,7 +13,7 @@ export default class UserController{
         const input: SignupInputDTO = {
             name,
             email,
-            password
+            password,
         }
         try{
             const token = await this.userBusiness.signup(input)
