@@ -52,22 +52,6 @@ export class DogWalking {
    
 }
 
-export const stringToUserRole = (input: string): USER_ROLES => {
-   switch (input) {
-      case "NORMAL":
-         return USER_ROLES.NORMAL;
-      case "ADMIN":
-         return USER_ROLES.ADMIN;
-      default:
-         throw new CustomError(422, "Invalid user role");
-   }
-};
-
-export enum USER_ROLES {
-   NORMAL = "NORMAL",
-   ADMIN = "ADMIN",
-}
-
 export interface DogWalkInputDTO{
    date: string,
    duration: number,
@@ -77,3 +61,5 @@ export interface DogWalkInputDTO{
    startTime: string,
    endTime: string
 }
+
+

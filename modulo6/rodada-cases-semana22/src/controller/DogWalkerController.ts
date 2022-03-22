@@ -26,6 +26,64 @@ export class DogWalkerController {
       }
    }
 
+   public async show(req: Request, res: Response) {
+      try {
+         const { id_walk } = req.query
+         
+         const result = await DogWalkerBusiness.show(
+            id_walk as string
+         );
+         res.status(200).send(result);
+      } catch (error) {
+         
+         if (error instanceof Error) {
+            res.status(400).send(error.message);
+        } else {
+            res.send({ message: "Algo deu errado ao coletar passeio" })
+        }
+      }
+   }
+
+   public async startWalk(req: Request, res: Response) {
+      try {
+         const  idWalk  = req.params.id_walk
+         const  startWalk  = req.body.start_walk
+
+         const result = await DogWalkerBusiness.startWalk(
+            idWalk,
+            startWalk
+         );
+         res.status(200).send(result);
+      } catch (error) {
+         
+         if (error instanceof Error) {
+            res.status(400).send(error.message);
+        } else {
+            res.send({ message: "Algo deu errado ao iniciar passeio" })
+        }
+      }
+   }
+
+   public async finishWalk(req: Request, res: Response) {
+      try {
+         const  idWalk  = req.params.id_walk
+         const  finishWalk  = req.body.finish_walk
+
+         const result = await DogWalkerBusiness.finishWalk(
+            idWalk,
+            finishWalk
+         );
+         res.status(200).send(result);
+      } catch (error) {
+         
+         if (error instanceof Error) {
+            res.status(400).send(error.message);
+        } else {
+            res.send({ message: "Algo deu errado ao iniciar passeio" })
+        }
+      }
+   }
+
 }
 
 export default new DogWalkerController()

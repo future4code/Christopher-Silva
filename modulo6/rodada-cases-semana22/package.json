@@ -1,7 +1,7 @@
 {
-  "name": "dog-walkin",
+  "name": "dog-hero",
   "version": "1.0.0",
-  "description": "case do projeto dog-walking API",
+  "description": "case do projeto dog-hero API",
   "main": "index.js",
   "scripts": {
     "start": "tsc & node build/index.js",
@@ -11,7 +11,7 @@
   },
   "keywords": [
     "api",
-    "dog_walking"
+    "dog_hero"
   ],
   "author": "Christopher Feilstrecker",
   "license": "ISC",

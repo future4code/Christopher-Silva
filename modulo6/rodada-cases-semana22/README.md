@@ -1,4 +1,4 @@
-<h1 align="center" id="top">Projeto Dog Walking (API): <img src="https://www.pngkey.com/png/full/67-675394_dog-walking-png-dog-walking.png" width="50"></h1>
+<h1 align="center" id="top">Projeto Dog Hero (API): <img src="https://www.pngkey.com/png/full/67-675394_dog-walking-png-dog-walking.png" width="50"></h1>
 
 <p align="center">
   <a href="#sobre">Sobre</a> &#xa0; | &#xa0; 
@@ -14,7 +14,7 @@
 - Case de back-End
 
 
- Projeto Dog Walking é uma API baseado no site Dog Hero de agendamento de passeios para cachorros. 
+ Projeto Dog Hero é uma API para agendamento de passeios para cachorros. 
 
 <h2 id="documentacao"> Documentação API: </h2>
 

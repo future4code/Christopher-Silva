@@ -47,13 +47,12 @@ export class DogWalkerDatabase extends BaseDataBase {
       }
    }
 
-   /*
-   public async getUserByEmail(email: string): Promise<  undefined> {
+   public async startWalk(idWalk: String, startWalk:String): Promise<  undefined> {
       try {
          const result = await BaseDataBase.connection.raw(`
-            SELECT * from ${this.tableName} WHERE email = '${email}'
+         UPDATE ${this.tableName} SET start_walk = '${startWalk}', status = "PASSEANDO" WHERE id = '${idWalk}'
          `);
-         return this.toModel(result[0][0]);
+         return ;
       } catch (error) {
          if (error instanceof Error) {
             throw new Error(error.message) 
@@ -61,6 +60,33 @@ export class DogWalkerDatabase extends BaseDataBase {
       }
    }
 
+   public async finishWalk(idWalk: String, finishWalk:String): Promise<  undefined> {
+      try {
+         const result = await BaseDataBase.connection.raw(`
+         UPDATE ${this.tableName} SET finish_walk = '${finishWalk}', status = "FINALIZADO" WHERE id = '${idWalk}'
+         `);
+         return ;
+      } catch (error) {
+         if (error instanceof Error) {
+            throw new Error(error.message) 
+          }
+      }
+   }
+
+   
+   public async getWalkById(id: String): Promise<void|any> {
+      try {
+         const result = await BaseDataBase.connection.raw(`
+            SELECT * from ${this.tableName} WHERE id = '${id}'
+         `);
+         return result[0];
+      } catch (error) {
+         if (error instanceof Error) {
+            throw new Error(error.message) 
+          }
+      }
+   }
+/*
    public async getUserById(id: string): Promise<User | undefined> {
       try {
          const result = await BaseDataBase.connection.raw(`

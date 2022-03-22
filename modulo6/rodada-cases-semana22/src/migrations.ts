@@ -27,12 +27,11 @@ export const createTables = async (): Promise<boolean> => {
                 latitude VARCHAR(255) NOT NULL,
                 longitude VARCHAR(255) NOT NULL,
                 number_of_pets INT NOT NULL,
-                start_time TIME NULL,
-                end_time TIME NOT NULL,
+                start_time VARCHAR(5) NULL,
+                end_time VARCHAR(5) NOT NULL,
                 status ENUM("PENDENTE", "PASSEANDO", "FINALIZADO") DEFAULT "PENDENTE",
-                start_walk INT(14),
-                finish_walk INT(14)
-            );
+                start_walk VARCHAR(5),
+                finish_walk VARCHAR(5)
            `);
 
         console.log("Tabela criada com sucesso!");
