@@ -5,15 +5,15 @@ export class DogWalkerController {
 
    public async creat(req: Request, res: Response) {
       try {
-         const { date, duration, latitude, longitude, numberOfPets, startTime, endTime } = req.body
+         const { date, duration, latitude, longitude, number_of_pets, start_time, end_time } = req.body
          const result = await DogWalkerBusiness.creat(
             date,
             duration, 
             latitude, 
             longitude, 
-            numberOfPets, 
-            startTime, 
-            endTime
+            number_of_pets, 
+            start_time, 
+            end_time
          );
          res.status(200).send(result);
       } catch (error) {
@@ -80,6 +80,22 @@ export class DogWalkerController {
             res.status(400).send(error.message);
         } else {
             res.send({ message: "Algo deu errado ao iniciar passeio" })
+        }
+      }
+   }
+
+   public async walks(req: Request, res: Response) {
+      try {
+         const { page, walks_for_page } = req.body
+
+         const result = await DogWalkerBusiness.walks(page, walks_for_page);
+         res.status(200).send(result);
+      } catch (error) {
+         
+         if (error instanceof Error) {
+            res.status(400).send(error.message);
+        } else {
+            res.send({ message: "Algo deu errado ao retornar passeios" })
         }
       }
    }

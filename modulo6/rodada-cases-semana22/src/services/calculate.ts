@@ -18,7 +18,7 @@ export class Calculate {
         }
     }
 
-    public time = async (startWalk: String, finishWalk: String): Promise<any> => {
+    public time = async (startWalk: string[], finishWalk: string[]): Promise<any> => {
         const startHour = parseInt(startWalk[0])
         const startMin = parseInt(startWalk[1])
         const finishHour = parseInt(finishWalk[0])

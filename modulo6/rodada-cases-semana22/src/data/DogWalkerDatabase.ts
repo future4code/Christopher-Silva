@@ -86,6 +86,32 @@ export class DogWalkerDatabase extends BaseDataBase {
           }
       }
    }
+
+   public async allWalks(): Promise<void|any> {
+      try {
+         const result = await BaseDataBase.connection.raw(`
+            SELECT * from ${this.tableName}
+         `);
+         return result[0];
+      } catch (error) {
+         if (error instanceof Error) {
+            throw new Error(error.message) 
+          }
+      }
+   }
+
+   public async walksByPage(page:Number | any,walksForPage:Number): Promise<void|any> {
+      try {
+         const result = await BaseDataBase.connection.raw(`
+            SELECT * from ${this.tableName} LIMIT ${page-1}, ${walksForPage};
+         `);
+         return result[0];
+      } catch (error) {
+         if (error instanceof Error) {
+            throw new Error(error.message) 
+          }
+      }
+   }
 /*
    public async getUserById(id: string): Promise<User | undefined> {
       try {

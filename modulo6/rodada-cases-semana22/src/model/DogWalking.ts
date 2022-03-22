@@ -2,22 +2,22 @@ import { CustomError } from "../errors/CustomError";
 
 export class DogWalking {
    constructor(
-      private id: string,
-      private date: Date,
+      private id: String,
+      private date: String,
       private price: Number,
       private duration: Number,
       private latitude: String,
       private longitude: String,
       private numberOfPets: Number,
-      private startTime: Number,
-      private endTime: Number
+      private startTime: String,
+      private endTime: String
    ) { }
 
-   public getId(): string {
+   public getId(): String {
       return this.id;
    }
 
-   public getDate(): Date {
+   public getDate(): String {
       return this.date;
    }
 
@@ -41,11 +41,11 @@ export class DogWalking {
       return this.numberOfPets;
    }
 
-   public getStartTime(): Number {
+   public getStartTime(): String {
       return this.startTime;
    }
 
-   public getEndTime(): Number {
+   public getEndTime(): String {
       return this.endTime;
    }
 
