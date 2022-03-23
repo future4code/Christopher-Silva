@@ -1,3 +1,4 @@
+import { CustomError } from "../errors/CustomError";
 import { DogWalking } from "../model/DogWalking";
 import BaseDataBase from "./BaseDatabase";
 
@@ -40,8 +41,8 @@ export class DogWalkerDatabase extends BaseDataBase {
             )`
          );
       } catch (error) {
-         if (error instanceof Error) {
-           throw new Error(error.message) 
+         if (error instanceof CustomError) {
+           throw new CustomError(500, error.message) 
          }
          
       }

@@ -18,6 +18,7 @@ export default class BaseDataBase {
    });
 
    public static async destroyConnection(): Promise<void> {
+      console.log("conecção fechada")
       await BaseDataBase.connection.destroy();
    }
 }

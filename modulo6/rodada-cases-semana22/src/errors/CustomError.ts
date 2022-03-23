@@ -5,5 +5,6 @@ export class CustomError extends Error {
   ) {
      super(message);
   }
+
 }
   

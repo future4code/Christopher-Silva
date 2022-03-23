@@ -7,6 +7,7 @@
     "start": "tsc & node build/index.js",
     "build": "tsc",
     "dev": "tsnd src/index.ts",
+    "test": "clear && echo \"Running tests...\" && jest --runInBand --detectOpenHandles --forceExit",
     "migrations": "tsnd src/migrations.ts"
   },
   "keywords": [

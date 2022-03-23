@@ -11,8 +11,6 @@ export class DogWalkerBusiness {
 
    constructor(
       private idGenerator: IdGenerator,
-      private hashGenerator: HashGenerator,
-      private tokenGenerator: TokenGenerator,
       private dogWalkerDatabase: DogWalkerDatabase,
       private calculate: Calculate
    ) {
@@ -28,9 +26,11 @@ export class DogWalkerBusiness {
       start_time: String,
       end_time: String
    ) {
+      let codeStatus = 400
       try {
-   
+         
          if (!date || !duration || !latitude || !longitude || !number_of_pet || !start_time || !end_time) {
+            codeStatus = 422
             throw new CustomError(422, "Preencha todos os dados corretamente");
          }
 
@@ -45,10 +45,11 @@ export class DogWalkerBusiness {
          var yearSent = parseInt(dateWalk[0])
 
          if(yearSent < actualYear){
+            
             throw new CustomError(422, "Ano não pode ser anterior ao atual");
-         }else if(monthSent < actualMonth){
-            throw new CustomError(422, "Mês não pode ser anterior ao atual");
-         }else if(daySent < actualDay){
+         }else if(yearSent === actualYear && monthSent < actualMonth){
+              throw new CustomError(422, "Mês não pode ser anterior ao atual");
+         }else if(yearSent === actualYear && monthSent === actualMonth && daySent < actualDay){   
             throw new CustomError(422, "Dia não pode ser anterior ao atual");
          } 
 
@@ -56,8 +57,9 @@ export class DogWalkerBusiness {
          const finishWalk = end_time.split(":");
 
          const time = await this.calculate.time(startWalk, finishWalk)
-         if(time > duration){
-            throw new CustomError(422, "Tempo entre inicio e fim não pode ser maior que "+duration+" minutos");
+         if(time !== duration){
+
+            throw new CustomError(422, "Tempo entre inicio e fim não pode ser diferente que "+duration+" minutos");
          } 
 
          const id = this.idGenerator.generate();
@@ -80,7 +82,7 @@ export class DogWalkerBusiness {
       } catch (error) {
 
          if (error instanceof Error) {
-            throw new CustomError(400, error.message)
+            throw new CustomError(codeStatus, error.message)
          } else {
             throw new CustomError(400, "Erro ao cadastrar passeio")
          }
@@ -118,7 +120,7 @@ export class DogWalkerBusiness {
          if (error instanceof Error) {
             throw new CustomError(400, error.message)
          } else {
-            throw new CustomError(400, "Erro ao cadastrar passeio")
+            throw new CustomError(400, "Erro ao retornar tempo do passeio")
          }
       }
    }
@@ -226,8 +228,6 @@ export class DogWalkerBusiness {
 
 export default new DogWalkerBusiness(
    new IdGenerator(),
-   new HashGenerator(),
-   new TokenGenerator(),
    new DogWalkerDatabase(),
    new Calculate()
 )
