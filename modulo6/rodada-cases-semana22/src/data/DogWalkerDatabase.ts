@@ -101,7 +101,7 @@ export class DogWalkerDatabase extends BaseDataBase {
       }
    }
 
-   public async walksByPage(page:Number | any,walksForPage:Number): Promise<void|any> {
+   public async walksByPage(page:Number | any,walksForPage:Number | any): Promise<void|any> {
       try {
          const result = await BaseDataBase.connection.raw(`
             SELECT * from ${this.tableName} LIMIT ${page-1}, ${walksForPage};

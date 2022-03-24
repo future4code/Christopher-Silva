@@ -26,11 +26,11 @@ export class DogWalkerBusiness {
       start_time: String,
       end_time: String
    ) {
-      let codeStatus = 400
+      
       try {
          
          if (!date || !duration || !latitude || !longitude || !number_of_pet || !start_time || !end_time) {
-            codeStatus = 422
+            
             throw new CustomError(422, "Preencha todos os dados corretamente");
          }
 
@@ -82,7 +82,7 @@ export class DogWalkerBusiness {
       } catch (error) {
 
          if (error instanceof Error) {
-            throw new CustomError(codeStatus, error.message)
+            throw new CustomError(400, error.message)
          } else {
             throw new CustomError(400, "Erro ao cadastrar passeio")
          }
@@ -102,7 +102,9 @@ export class DogWalkerBusiness {
             id
          );
 
-         if (walk[0].status === "PENDENTE") {
+         if (!walk || walk.length === 0) {
+            throw new CustomError(422, "Passeio não encontrado");
+         }else if (walk[0].status === "PENDENTE") {
             throw new CustomError(422, "Passeio ainda não realizado");
          } else if (walk[0].status === "PASSEANDO") {
             throw new CustomError(422, "Passeio ainda não finalizado");
@@ -134,6 +136,18 @@ export class DogWalkerBusiness {
          if (!idWalk || !startWalk) {
             throw new CustomError(422, "Preencha todos os dados corretamente");
          }
+         const walkVerifyStartWalk = await this.dogWalkerDatabase.getWalkById(
+            idWalk
+         );
+
+         if (!walkVerifyStartWalk || walkVerifyStartWalk.length === 0) {
+            throw new CustomError(422, "Passeio não encontrado");
+         }else if(walkVerifyStartWalk[0].status === "FINALIZADO"){
+            throw new CustomError(422, "Não é possivel editar, passeio já finalizado");
+         }else if(walkVerifyStartWalk[0].status === "PASSEANDO"){
+            throw new CustomError(422, "Não é possivel editar, passeio já iniciado");
+         }
+
          const walk = await this.dogWalkerDatabase.startWalk(
             idWalk,
             startWalk
@@ -164,13 +178,20 @@ export class DogWalkerBusiness {
             idWalk
          );
 
+         if (!walkData || walkData.length === 0) {
+            throw new CustomError(422, "Passeio não encontrado");
+         }else if(walkData[0].status === "PENDENTE"){
+            throw new CustomError(422, "Não é possivel editar, passeio ainda não iniciado");
+         }else if(walkData[0].status === "FINALIZADO"){
+            throw new CustomError(422, "Não é possivel editar, passeio já finalizado");
+         }
          const startWalkNumber = walkData[0].start_walk.split(":");
          const finishWalkNumber = finishWalk.split(":");
 
-         if (startWalkNumber[0] === finishWalkNumber[0] && startWalkNumber[1] > finishWalkNumber[1]) {
-            throw new CustomError(422, "Horário final não pode ser anterior ao inicial");
+           if (startWalkNumber[0] === finishWalkNumber[0] && startWalkNumber[1] >= finishWalkNumber[1]) {
+            throw new CustomError(422, "Horário final não pode ser anterior ou igual ao inicial");
          } else if (startWalkNumber[0] > finishWalkNumber[0]) {
-            throw new CustomError(422, "Horário final não pode ser anterior ao inicial");
+            throw new CustomError(422, "Horário final não pode ser anterior ou igual ao inicial");
          }
 
 
@@ -191,12 +212,12 @@ export class DogWalkerBusiness {
    }
 
    public async walks(
-      page: Number,
-      walksForPage: Number
+      page: Number| null | String,
+      walksForPage: Number | null | String
    ) {
       try {
 
-         const walk = (async (page: Number, walksForPage: Number) => {
+         const walk = (async (page: Number | any, walksForPage: Number | any) => {
 
             if (page === 0) {
                throw new CustomError(400, "Número da página não pode ser 0");
