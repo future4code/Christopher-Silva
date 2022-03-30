@@ -83,8 +83,7 @@ Teste o código no seu navegador pelo surge <a href="#surge">AQUI</a> ou pelo se
 
 ### Mobile
 
-<img src="https://user-images.githubusercontent.com/87909626/160910948-b64e5356-862d-4067-b880-c37ef8543aa3.png" width="200">
- <img src="https://user-images.githubusercontent.com/87909626/160910946-c5f5df9f-dbc6-4a4f-a559-d361a6b11ecf.png" width="200">
+<img src="https://user-images.githubusercontent.com/87909626/160910948-b64e5356-862d-4067-b880-c37ef8543aa3.png" width="200"><img src="https://user-images.githubusercontent.com/87909626/160910946-c5f5df9f-dbc6-4a4f-a559-d361a6b11ecf.png" width="200">
 <img src="https://user-images.githubusercontent.com/87909626/160910944-cf3f9fbc-ab73-40dc-b814-a1db8d4c6c83.png" width="200">
 <img src="https://user-images.githubusercontent.com/87909626/160910943-5e89a1c1-6995-47f4-890f-aab8eacae97f.png" width="200">
 <img src="https://user-images.githubusercontent.com/87909626/160910941-75c00b57-2959-4685-849a-f1ac2dcbe097.png" width="200">
