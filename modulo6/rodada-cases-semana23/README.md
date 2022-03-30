@@ -41,19 +41,10 @@
 - Javascript
 - CSS
 - Node
-- SQL
-- MySQL
 - Express
-- Cors
-- Dotenv
-- Knex
 - React
 - Axios
-- UUID
-- Bcrypt
-- Hash
 - json
-- jest
 
 
 <h2 id="funcionalidades">Funcionalidades:</h2>
