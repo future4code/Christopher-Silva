@@ -75,8 +75,7 @@ Teste o código no seu navegador pelo surge <a href="#surge">AQUI</a> ou pelo se
 <h2 id="imagens"> Imagens </h2>
 
 ### Desktop
-<img src="https://user-images.githubusercontent.com/87909626/160904401-685602c2-9c9b-46aa-ac82-a9c71188c484.png" width="350">
- <img src="https://user-images.githubusercontent.com/87909626/160906082-1375c794-ed4b-4399-9094-10a04afb2b52.png" width="350">
+<img src="https://user-images.githubusercontent.com/87909626/160904401-685602c2-9c9b-46aa-ac82-a9c71188c484.png" width="350"><img src="https://user-images.githubusercontent.com/87909626/160906082-1375c794-ed4b-4399-9094-10a04afb2b52.png" width="350">
 <img src="https://user-images.githubusercontent.com/87909626/160906080-481705b7-81d6-4c09-bd17-b60d2d9bb15f.png" width="350">
 <img src="https://user-images.githubusercontent.com/87909626/160906077-5acbbeb9-3225-4121-a101-10da30183ff1.png" width="350">
 <img src="https://user-images.githubusercontent.com/87909626/160906076-fd00a345-bb34-4277-b512-6d1ac64b2378.png" width="350">
