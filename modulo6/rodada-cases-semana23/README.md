@@ -18,13 +18,14 @@
 
 
 <h2 id="surge"> Surge: </h2>
+http://amuck-feet.surge.sh/
 
 
 <h2 id="recursos"> Recursos: </h2>
 
-- Layout: 
+- Layout: https://www.figma.com/file/H2qrYBCFMf4didYmxRwTxP/Brainn-Frontend-Challenge?node-id=0%3A1
 
-- API:
+- API: https://brainn-api-loterias.herokuapp.com/api/v1/docs/#/Loterias/getConcursos
 
 <h2 id="desenvolvedor"> Desenvolvedor 🤖 </h2>
 
