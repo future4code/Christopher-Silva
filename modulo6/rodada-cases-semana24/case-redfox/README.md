@@ -1,4 +1,4 @@
-<h1 align="center" id="top">Projeto Pokamon Go (API): <img src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-Transparent-File.png" width="50"></h1>
+<h1 align="center" id="top">Case 3 - Projeto Pokemon Go (API): <img src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-Transparent-File.png" width="50"></h1>
 
 <p align="center">
   <a href="#sobre">Sobre</a> &#xa0; | &#xa0; 
