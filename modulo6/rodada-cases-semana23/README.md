@@ -1,4 +1,4 @@
-<h1 align="center" id="top">Projeto Brainnco-exs: <img src="https://i.pinimg.com/originals/7e/6b/47/7e6b475d6d55d6dbc4bca2794c59fa2e.png" width="50"></h1>
+<h1 align="center" id="top">Case 2 - Projeto Brainnco-exs: <img src="https://i.pinimg.com/originals/7e/6b/47/7e6b475d6d55d6dbc4bca2794c59fa2e.png" width="50"></h1>
 
 <p align="center">
   <a href="#sobre">Sobre</a> &#xa0; | &#xa0; 
