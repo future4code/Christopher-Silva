@@ -7,10 +7,10 @@
 
 -> testes unitários e mockados
 
-    √ Erro mockado que deve retornar quando falta um valor na sequencia de numeros do array.
-    √ Certo mockado que deve retornar quando não falta nenhum numero na sequencia do array.
-    √ Erro que deve retornar quando falta um valor na sequencia de numeros do array. 
-    √ Certo que deve retornar quando não falta nenhum numero na sequencia do array. 
+    √ Ex. 1 - (mockado) Retorno do número faltante na sequencia de numeros do array.
+    √ Ex. 1 - (mockado) Retorno quando não falta nenhum numero na sequencia do array.
+    √ Ex. 1 - Retorno do número faltante na sequencia de numeros do array. 
+    √ Ex. 1 - Retorno quando não falta nenhum numero na sequencia do array. 
 
 ### Exercício 2
 - Verifica o index de um caracter numa string
