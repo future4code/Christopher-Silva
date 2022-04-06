@@ -1,6 +1,4 @@
 import { PokemonsDatabase } from "../data/PokemonsDatabase";
-import { CustomError } from "../errors/CustomError";
-import { Participants} from "../model/Participants";
 
 export class PokemonsBusiness {
 
@@ -9,55 +7,51 @@ export class PokemonsBusiness {
    ) {
 
    }
-   public async all() {
+   public async all(test:String) {
       try {
 
-         const pokemons = await this.pokemonsDatabase.getPokemons();
+         const pokemons = await this.pokemonsDatabase.getAllPokemons(test);
 
          if (!pokemons || pokemons.length === 0) {
-            throw new CustomError(422, "Erro ao retornar pokemons");
+
+            throw new Error("Erro ao retornar lista de pokemons");
          }
 
-      
          return (pokemons);
       } catch (error) {
 
          if (error instanceof Error) {
-            throw new CustomError(400, error.message)
+            throw new Error(error.message)
          } else {
-            throw new CustomError(400, "Erro ao retornar pokemons")
+            throw new Error("Erro ao retornar pokemons")
          }
       }
    }
 
    public async page(
-      page: Number,
-      pokemonsForPage: Number
+      page: Number | String,
+      pokemonsForPage: Number | String
    ) {
       try {
 
-        if(page <= 0){
-         throw new CustomError(422, "número da página não pode ser 0 ou número negativo");
+         if (page <= 0 || pokemonsForPage <= 0 || !page || !pokemonsForPage) {
+            throw new Error("Preencha todos os dados corretamente, valor enviado não pode ser 0 nem número negativo");
 
-        }else if (!page || !pokemonsForPage) {
-            
-            throw new CustomError(422, "Preencha todos os dados corretamente");
-         }
-         
-         const pokemons = await this.pokemonsDatabase.getPokemonsByPage(page,pokemonsForPage);
+         } 
+
+         const pokemons = await this.pokemonsDatabase.getPokemonsByPage(page, pokemonsForPage);
 
          if (!pokemons || pokemons.length === 0) {
-            throw new CustomError(422, "Erro ao retornar pokemons ou nenhum pokemon nesta página");
+            throw new Error("Nenhum pokemon nesta página");
          }
 
-      
          return (pokemons);
       } catch (error) {
 
          if (error instanceof Error) {
-            throw new CustomError(400, error.message)
+            throw new Error(error.message)
          } else {
-            throw new CustomError(400, "Erro ao retornar pokemons")
+            throw new Error("Erro ao retornar pokemons")
          }
       }
    }
@@ -67,19 +61,23 @@ export class PokemonsBusiness {
    ) {
       try {
          if (!id) {
-            throw new CustomError(422, "Preencha o id corretamente");
+            throw new Error("Preencha o id corretamente");
          }
-         const pokemon = await this.pokemonsDatabase.gePokemonById(
+         const pokemons = await this.pokemonsDatabase.gePokemonById(
             id
          );
 
-         return (pokemon);
+         if (!pokemons || pokemons.length === 0) {
+            throw new Error("Nenhum pokemon encontrado");
+         }
+
+         return (pokemons);
       } catch (error) {
 
          if (error instanceof Error) {
-            throw new CustomError(400, error.message)
+            throw new Error(error.message)
          } else {
-            throw new CustomError(400, "Erro ao retornar pokemon")
+            throw new Error("Erro ao retornar pokemon")
          }
       }
    }
@@ -88,31 +86,28 @@ export class PokemonsBusiness {
       search: String
    ) {
       try {
-         if (!search ) {
-            throw new CustomError(422, "Preencha o campo de busca");
+         if (!search) {
+            throw new Error("Parametro de busca não enviado");
          }
-         const pokemon = await this.pokemonsDatabase.getPokemon(
+         const pokemons = await this.pokemonsDatabase.getPokemonSearch(
             search
          );
 
-         if (!pokemon || pokemon.length === 0 ) {
-            throw new CustomError(204, "Nenhum pokemon encontrado");
+         if (!pokemons || pokemons.length === 0) {
+            throw new Error("Nenhum pokemon encontrado");
          }
 
-         return (pokemon);
-      } catch (error) {
+         return (pokemons);
 
+      } catch (error) {
          if (error instanceof Error) {
-            throw new CustomError(400, error.message)
+            throw new Error(error.message)
          } else {
-            throw new CustomError(400, "Erro ao retornar pokemon")
+            throw new Error("Erro ao retornar pokemon")
          }
       }
    }
-
 }
-
 export default new PokemonsBusiness(
-   
    new PokemonsDatabase(),
 )

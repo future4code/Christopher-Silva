@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 import PokemonsBusiness from "../business/PokemonsBusiness";
-import { CustomError } from "../errors/CustomError";
 
 export class PokemonsController {
 
    public async all(req: Request, res: Response) {
       try {
+         const test = ""
 
-         const result = await PokemonsBusiness.all();
+         const result = await PokemonsBusiness.all(test);
          res.status(200).send(result);
       } catch (error) {
 
@@ -37,7 +37,7 @@ export class PokemonsController {
 
    public async byId(req: Request, res: Response) {
       try {
-         const { id } = req.query
+         const { id } = req.params
          
          const result = await PokemonsBusiness.byId(
             id as string
@@ -55,10 +55,10 @@ export class PokemonsController {
 
    public async search(req: Request, res: Response) {
       try {
-         const { search1 } = req.query
+         const { search } = req.query
          
          const result = await PokemonsBusiness.search(
-            search1 as string
+            search as string
          );
          res.status(200).send(result);
       } catch (error) {

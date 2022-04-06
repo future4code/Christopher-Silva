@@ -1,4 +1,4 @@
-<h1 align="center" id="top">Projeto Pokamon Go (API): <img src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-Transparent-File.png" width="50"></h1>
+<h1 align="center" id="top">Case 3 - Desafio Pokemon Go (API): <img src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-Transparent-File.png" width="50"></h1>
 
 <p align="center">
   <a href="#sobre">Sobre</a> &#xa0; | &#xa0; 
@@ -73,14 +73,23 @@
 
 <h2 id="testes"> Testes:
 
-### Testes de creat (Cadastrar passeio)
- 
-    √ Erro que deve retornar quando um ou mais valores estã o vazios 
-    √ Erro que deve retornar quando ano é anterior ao atual 
-    √ Erro que deve retornar quando mês é anterior ao atual 
-    √ Erro que deve retornar quando mês é anterior ao atual 
-    √ Erro que deve retornar quando horário é diferente da duração 
-    √ Certo quando todos parametros estão corretos 
+## teste de all (busca lista com todos pokemons)
+    √ Erro que deve retornar quando lista de pokemons vier vazia (11 ms)
+    √ Certo deve retornar quando vier lista de pokemons (2 ms)
+## teste de page (busca pokemons por páginação)
+    √ Erro que deve retornar quando valor enviado for zero (3 ms)
+    √ Erro que deve retornar quando valor enviado for negativo (2 ms)
+    √ Erro que deve retornar quando vier lista de pokemons por página (3 ms)
+    √ Erro que deve retornar quando página vier vázia (2 ms)
+    √ Certo deve retornar quando resposta for correta (2 ms)
+##  teste de byId (busca pokemon por id)
+    √ Erro que deve retornar quando valor enviado vaziu ou inexistente (2 ms)
+    √ Erro que deve retornar quando lista de pokemons vier vazia (3 ms)
+    √ Certo que deve retornar quando vier o pokemon selecionado pelo id (3 ms)
+##  teste de search (busca pokemons por nome ou tipo)
+    √ Erro que deve retornar quando a busca vier vázia (3 ms)
+    √ Erro que deve retornar quando valor enviado for vázio (2 ms)
+    √ Certo que deve retornar quando busca trouxer pokemons (2 ms)
 
 
 <h2 id="comousar"> Como usar </h2>
