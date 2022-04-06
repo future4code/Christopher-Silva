@@ -1,4 +1,4 @@
-<h1 align="center" id="top">Case 3 - Desafio Pokemon Go (API): <img src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-Transparent-File.png" width="50"></h1>
+<h1 align="center" id="top">Case 3 - Projeto Pokemon Go (API): <img src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-Transparent-File.png" width="50"></h1>
 
 <p align="center">
   <a href="#sobre">Sobre</a> &#xa0; | &#xa0; 
@@ -11,30 +11,36 @@
 <a href="#comousar">Como Testar esta API</a>
 
 </p>
-<h2 id="sobre"> Sobre </h2>
+
+## <h2 id="sobre"> Sobre </h2>
+
+
+<br />
 - Pokemon Go (API) para consumo do banco de dados referente aos pokemons
 
+- Desafio Pokemon Go (API) é o case 3 do bootcamp da LABENU. 
 
- Projeto Pokemon Go (API) é o backend para o  case da semana 24 do bootcamp da LABENU. 
+<br />
 
-<h2 id="documentacao"> Documentação API: </h2>
+## <h2 id="documentacao"> Documentação API: </h2>
+
 
 <table>
   <tr>
-  
-  <td align="center"><a href="https://github.com/ChristpherFeilstrecker">
-   <sub><h2>Postman</h2> </sub> 
+
+  ## Acesse o postman aqui 👉 [ <img src="https://c.tenor.com/rbx3ph5SLRUAAAAj/pikachu-pokemon.gif" width="70" align="center"> ](https://documenter.getpostman.com/view/18385085/UVyvuuDy)
+
        
 </table>
  
- 
+## <h2 id="heroku"> Deploy (Heroku): </h2>
 
+ https://pokemongo-api.herokuapp.com/
 
-<h2 id="heroku"> Deploy (Heroku): </h2>
-[] 
+<br />
 
+## <h2 id="desenvolvedor"> Desenvolvedor 🤖 </h2>
 
-<h2 id="desenvolvedor"> Desenvolvedor 🤖 </h2>
 
 <table>
   <tr>
@@ -42,9 +48,12 @@
    <sub><h2>Christopher Feilstrecker da Silva</h2> </sub> 
        
 </table>
+<br />
+
+## <h2 id="tecnologias"> Tecnologias utilizadas: 🖥️ </h2>
 
 
-<h2 id="tecnologias"> Tecnologias utilizadas: 🖥️ </h2>
+<br />
 
 - Typescript
 - Node
@@ -62,16 +71,24 @@
 - json
 - jest
 
+<br />
 
-<h2 id="funcionalidades"> Funcionalidades:
+## <h2 id="funcionalidades"> Funcionalidades: </h2>
 
-* Cadastrar passeio;
-* Iniciar passeio;
-* Finalizar passeio;
-* Mostrar tempo real do passeio;
-* Retornar todos passeios com ou sem paginação;
 
-<h2 id="testes"> Testes:
+<br />
+
+* Retorna todos pokemons;
+* Retorna lista de pokemons por página e quantidade;
+* Retorna lista de pokemons por nome ou tipo;
+* Retorna o pokemon pelo id;
+
+<br />
+
+## <h2 id="testes"> Testes:
+
+
+<br />
 
 ## teste de all (busca lista com todos pokemons)
     √ Erro que deve retornar quando lista de pokemons vier vazia (11 ms)
@@ -91,8 +108,11 @@
     √ Erro que deve retornar quando valor enviado for vázio (2 ms)
     √ Certo que deve retornar quando busca trouxer pokemons (2 ms)
 
+<br />
 
-<h2 id="comousar"> Como usar </h2>
+## <h2 id="comousar"> Como usar </h2>
+
+<br />
 
 Banco dados populado, deve ser consumido pelo postman seguindo a documentação <a href="#documentacao">AQUI</a> 
 
