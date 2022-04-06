@@ -5,13 +5,17 @@
 ### Exercício 1 
 - Verificar número faltante em array
 
--> teste
- - Erro para número faltante.
- - Certo para nenhum número faltante.
+-> testes automatizados e mockados
+
+   
+    √ Erro mockado que deve retornar quando falta um valor na sequencia de numeros do array.
+    √ Certo mockado que deve retornar quando não falta nenhum numero na sequencia do array.
+    √ Erro que deve retornar quando falta um valor na sequencia de numeros do array. 
+    √ Certo que deve retornar quando não falta nenhum numero na sequencia do array. 
 
 
 ## Testando Código
 - Para rodar os ecercícios execute o comando "npm run start"
- que irá rodar todos exercício com console.log.
+- Ecercícios executados por com console.log no arquivo index.js.
 
 - Para rodar os testes execute o comando "npm run test".
