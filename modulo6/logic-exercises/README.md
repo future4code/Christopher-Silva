@@ -24,7 +24,9 @@
 
 
 ## Testando Código
-- Para testar as funções execute o comando "npm run start".
-- Ecercícios executados por com console.log no arquivo index.js.
+- Para testar as funções baixe os arquivos no seu computador.
+- Execute o comando "npm install.
+- Execute o comando "npm run start" para testar as funções.
+- Ecercícios executados com console.log no arquivo index.js.
 
 - Para rodar os testes execute o comando "npm run test".
