@@ -53,7 +53,32 @@ public ex1BD(text:string) {
 
     return "caracter não encontrado na palavra"
   }
+
+  public checkCharacter(str:string) {
+
+    let array:string[] = Array.from(str)
+    let arrayTest:string[] = Array.from(str)
+    //let index:number = 0      ([])
+   let lastCha = arrayTest[arrayTest.length-1]
+   
+    for (let character of array){
+      if ((character === "(")&&(lastCha===")") || (character === "[")&&(lastCha==="]") || (character === "{")&&(lastCha==="}")){
+        arrayTest.splice(0,1)  
+        arrayTest.pop()
+        lastCha =arrayTest[arrayTest.length-1]
+     } else if (arrayTest.length === 0){
+      return true
+      }else{
+        return false
+      }
+    }
+    
+    
+
+  }
 }
+
+
 
   export default new ExerciciosBusiness(
     new ExerciciosDatabase()

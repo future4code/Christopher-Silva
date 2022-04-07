@@ -81,5 +81,30 @@ describe("teste exercícios", () => {
             expect.assertions(1)
         }
     })
+
+    test("Ex. 3 - Resposta da função com caracteres inválidos", () => {
+        try {
+            const result =  exerciciosBusinessMock.checkCharacter("({}")
+            expect(result).toEqual(false)
+        } catch (e) {
+            if (e instanceof Error) {
+                
+            }
+        } finally {
+            expect.assertions(1)
+        }
+    })
+
+    test("Ex. 3 - Resposta da função com caracteres válidos", () => {
+        try {
+            const result =  exerciciosBusinessMock.checkCharacter("{([])}")
+             expect(result).toEqual(true)
+        } catch (e) {
+            if (e instanceof Error) { 
+            }
+        } finally {
+            expect.assertions(1)
+        }
+    })
     
 })
