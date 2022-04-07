@@ -17,16 +17,21 @@
 
 -> testes unitários
 
-    √ Ex. 2 - Resposta da função com index da letra encontrada na string (2 ms)
+    √ Ex. 2 - Resposta da função com index da letra encontrada na string 
     √ Ex. 2 - Resposta da função quando não encontra letra na string  
 
+### Exercício 3
+- Verifica se os caracteres "()","{}" e "[]" estão posicionados e corretos.
 
+-> testes unitários
+    √ Ex. 3 - Resposta da função com caracteres inválidos 
+    √ Ex. 3 - Resposta da função com caracteres válidos 
 
 
 ## Testando Código
 - Para testar as funções baixe os arquivos no seu computador.
-- Execute o comando "npm install.
-- Execute o comando "npm run start" para testar as funções.
+- Execute o comando ```npm install``` .
+- Comando ```npm run dev``` ou ```npm run start``` para executar as funções.
+- Comando ```npm run test``` para testar as funções.
 - Ecercícios executados com console.log no arquivo index.js.
 
-- Para rodar os testes execute o comando "npm run test".
