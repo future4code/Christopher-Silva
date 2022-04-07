@@ -113,7 +113,40 @@
 ## <h2 id="comousar"> Como usar </h2>
 
 <br />
+Teste o código pelo postman seguindo a documentação <a href="#documentacao">AQUI</a> ou pelo seu computador assim:
+- Clone o código para seu computador.
+-  Junto dos arquivos clonados crie outro arquivo com nome .env (para acessar seu banco de dados).
+  
+   Ex.: 
+   
+        DB_USER = seu_usuario
+  
+        DB_PASSWORD = sua_senha
+  
+        DB_HOST = seu_host
+  
+        DB_PORT = sua_posrt
+  
+        DB_DATABASE_NAME = nome_database
+  
+- Dentro da pasta clonada, execute no terminal os comandos:
 
-Banco dados populado, deve ser consumido pelo postman seguindo a documentação <a href="#documentacao">AQUI</a> 
+->  ```npm install``` (para instalar as dependencias).
 
-<a href="#top">Voltar para o topo</a> 
+->  ```npm migrations``` (para criar a polular tabela).
+
+->  ```npm run test``` (para rodar os tests dos enpoints).
+
+-> ```npm run dev```  ou ```npm run start``` (para rodar o servidor e utilizar os endpoints).
+
+- Utilize o arquivo request.rest para testar as funcionalidades ou pelo postman trocando o link pelo seu localhost mantendo os endpoints, seguindo  documentação do postman <a href="#documentacao">AQUI</a>.
+- Exemplo:
+
+de: https://pokemongo-api.herokuapp.com/pokemons/all
+
+para: http://localhost:3003/dogwalker/pokemons/all
+
+ <br />
+ <br />
+
+<div align="center"><a href="#top">Voltar para o topo</a></div>

@@ -1,4 +1,4 @@
-import { Pokemon, PokemonAllData } from "../model/Pokemon";
+import { Pokemon, PokemonAllData, PokemonType } from "../model/Pokemon";
 import BaseDataBase from "./BaseDatabase";
 
 export class PokemonsDatabase extends BaseDataBase {
@@ -37,6 +37,19 @@ export class PokemonsDatabase extends BaseDataBase {
       );
    }
 
+   private toModel3(dbModelType?: any): PokemonType | undefined {
+      return (
+         dbModelType &&
+         new PokemonType(
+            dbModelType.id,
+            dbModelType.name,
+            dbModelType.img_name,
+            dbModelType.type_1,
+            dbModelType.type_2
+         )
+      );
+   }
+
    public async getAllPokemons(test:String): Promise<void|any> {
       try {
          const result = await BaseDataBase.connection.raw(`
@@ -53,7 +66,7 @@ export class PokemonsDatabase extends BaseDataBase {
       }
    }
 
-   public async getPokemonsByPage(page:Number | any,pokemonsForPage:Number | any): Promise<void|any> {
+   public async getPokemonsByPage(page:Number|any,pokemonsForPage:Number|any): Promise<void|any> {
       try {
          const result = await BaseDataBase.connection.raw(`
          SELECT * from ${this.tableName} LIMIT ${page-1}, ${pokemonsForPage};
@@ -94,7 +107,7 @@ export class PokemonsDatabase extends BaseDataBase {
          `);
 
          return result[0].map((res: any) => {
-            return this.toModel(res);
+            return this.toModel3(res);
          });
       } catch (error) {
          if (error instanceof Error) {

@@ -88,3 +88,33 @@ export class Pokemon {
         return this.sta;
      }
  }
+
+ export class PokemonType {
+   constructor(
+      private id: string,
+      private name: string,
+      private img_name: string,
+      private type_1: string,
+      private type_2: string
+   ) { }
+
+   public getId(): string {
+      return this.id;
+   }
+
+   public getName(): string {
+      return this.name;
+   }
+
+   public getImgName(): string {
+      return this.img_name;
+   }
+
+   public getType1(): string {
+      return this.type_1;
+   }
+
+   public getType2(): string {
+      return this.type_2;
+   }
+}

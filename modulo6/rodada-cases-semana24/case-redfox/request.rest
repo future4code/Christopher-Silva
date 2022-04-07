@@ -1,0 +1,32 @@
+
+# @name Pokemons
+//Retorna todos pokemons
+GET  http://localhost:3000/pokemons/all
+Content-Type: application/json
+
+###
+
+# @name PokemonsByPage
+// Retorna lista de pokemons por página e quantidade
+GET  http://localhost:3000/pokemons/page
+Content-Type: application/json
+{
+    "page":1,
+    "pokemons_for_page":4
+}
+
+###
+
+# @name PokemonsById
+// Retorna pokemon pelo id
+GET  http://localhost:3000/pokemons/:id
+Content-Type: application/json
+
+###
+
+# @name PokemonsByNameOrType
+// Retorna pokemon pelo id
+GET  http://localhost:3000/pokemons/search?search=fire
+Content-Type: application/json
+
+###
