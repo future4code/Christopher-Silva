@@ -21,9 +21,9 @@ export class PokemonsController {
 
    public async page(req: Request, res: Response) {
       try {
-         const { page, pokemons_for_page } = req.body
+         const { page , pokemons_for_page } = req.query
 
-         const result = await PokemonsBusiness.page(page, pokemons_for_page);
+         const result = await PokemonsBusiness.page(page as string, pokemons_for_page as string);
          res.status(200).send(result);
       } catch (error) {
 
