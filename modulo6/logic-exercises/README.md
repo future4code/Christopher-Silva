@@ -24,8 +24,18 @@
 - Verifica se os caracteres "()","{}" e "[]" estão posicionados e corretos.
 
 -> testes unitários
+
     √ Ex. 3 - Resposta da função com caracteres inválidos 
     √ Ex. 3 - Resposta da função com caracteres válidos 
+
+### Exercício 4 
+- Verificar letras iniciais iguais de strings num array
+
+-> testes unitários 
+
+    √ Ex. 4 - Resposta da função com strings com letras iniciais iguais 
+    √ Ex. 4 - Resposta da função com strings com letras iniciais diferentes 
+
 
 
 ## Testando Código

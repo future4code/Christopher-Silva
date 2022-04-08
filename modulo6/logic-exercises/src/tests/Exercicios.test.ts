@@ -106,5 +106,32 @@ describe("teste exercícios", () => {
             expect.assertions(1)
         }
     })
+
+    test("Ex. 4 - Resposta da função com strings com letras iniciais iguais", () => {
+        try {
+            const result =  exerciciosBusinessMock.checkCommonPrefix(["string1","string2","string3"])
+             expect(result).toEqual("string")
+        } catch (e) {
+            if (e instanceof Error) { 
+            }
+        } finally {
+            expect.assertions(1)
+        }
+    })
+
+    test("Ex. 4 - Resposta da função com strings com letras iniciais diferentes", () => {
+        try {
+            const result =  exerciciosBusinessMock.checkCommonPrefix(["string1","string","cstring"])
+             expect(result).toEqual("")
+        } catch (e) {
+            if (e instanceof Error) { 
+            }
+        } finally {
+            expect.assertions(1)
+        }
+    })
+
+
+
     
 })
