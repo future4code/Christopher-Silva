@@ -99,25 +99,30 @@ export class ExerciciosBusiness {
   }
 
   public lonelyNumber(strs: number[]) {
-
+console.log("length",strs.length)
     let newArray = strs
-    for (let i = 0; i < strs.length; i++) {
-      for (let j = 1; i < strs.length; j++) {
-        if (strs[i] === strs[j]) {
-          
-            let buscarPor = strs[i]
-            let indice = newArray.indexOf(buscarPor);
-            while (indice >= 0) {
-              newArray.splice(indice, 1);
-              indice = newArray.indexOf(buscarPor);
-            }
-          
 
+    for (let i = 0; i < strs.length; i++) {
+
+      for (let j = i+1; j < strs.length; j++) {
+
+        if (strs[i] === strs[j]) {
+          console.log("i =",strs[i],"j=",strs[j])
+                     
+        let index =  newArray.indexOf(strs[i])
+     console.log("index",index)
+      
+      // newArray = newArray.splice(index,1);
+      
         }
       }
     }
 
     return newArray
+  }
+
+  public isAnagram(s: string, t: string) {
+    return s.split("").sort().join("") === t.split("").sort().join("")
   }
 }
 
