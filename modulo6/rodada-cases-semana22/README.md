@@ -1,4 +1,4 @@
-<h1 align="center" id="top">Projeto Dog Hero (API): <img src="https://www.pngkey.com/png/full/67-675394_dog-walking-png-dog-walking.png" width="50"></h1>
+<h1 align="center" id="top">Case 1 - Projeto Dog Hero (API): <img src="https://www.pngkey.com/png/full/67-675394_dog-walking-png-dog-walking.png" width="50"></h1>
 
 <p align="center">
   <a href="#sobre">Sobre</a> &#xa0; | &#xa0; 
@@ -19,13 +19,14 @@
 
 <h2 id="documentacao"> Documentação API: </h2>
 
- ## Acesse o postman aqui 👉 [ <img src="https://i.pinimg.com/originals/c1/ea/7e/c1ea7efd4baf038c15ed7c02d280d603.gif" width="70" align="center"> ](https://documenter.getpostman.com/view/18385085/UVsPPjpR)
+ ## Acesse a documentação aqui 👉 [ <img src="https://i.pinimg.com/originals/c1/ea/7e/c1ea7efd4baf038c15ed7c02d280d603.gif" width="70" align="center"> ](https://documenter.getpostman.com/view/18385085/UVsTr2vB)
 
 
 <h2 id="heroku"> Deploy (Heroku): </h2>
-[] 
+[https://doghero-carver-case1.herokuapp.com/] 
 
-<h2 id="heroku"> Desenvolvedore 🤖 </h2>
+
+<h2 id="desenvolvedor"> Desenvolvedor 🤖 </h2>
 
 <table>
   <tr>
@@ -96,7 +97,7 @@
     √ Erro que deve retornar quando hora for igual, mas minuto final for menor ou igual que inicial 
     √ Certo quando todos parametros estão corretos 
 
-###  Teste de walks (Retornar todos passeios)
+###  Teste de walks (Retornar todos passeios com ou sem paginação)
     √ Erro que deve retornar quando for enviado paginação e número da página for zero 
     √ Erro que deve retornar quando for enviado quantidade de itens por pagina e número da página for vaziu 
     √ Erro que deve retornar quando for enviado numero de pagina e itens por página for vaziu 
@@ -105,24 +106,34 @@
 
 <h2 id="comousar"> Como usar </h2>
 
-Teste o código pelo postman seguindo a documentação <a href="#documentacao">AQUI</a> ou pelo seu computador assim:
+Teste o código pelo postman ou ferramenta de sua preferencia, seguindo a documentação <a href="#documentacao">AQUI</a> ou pelo seu computador assim:
 - Clone o código para seu computador.
-- Rode o comando npm instal (para instalar bibliotecas).
-- Cria um arquivo com nome .env (para acessar seu banco de dados).
-   Ex.: DB_USER = seu_usuario
+-  Junto dos arquivos clonados crie outro arquivo com nome .env (para acessar seu banco de dados).
+  
+   Ex.: 
+   
+        DB_USER = seu_usuario
+  
         DB_PASSWORD = sua_senha
+  
         DB_HOST = seu_host
+  
         DB_PORT = sua_posrt
+  
         DB_DATABASE_NAME = nome_database
-- Rode o comando "npm run migrations" para criar a tabela.
-- Rode o comando "npm run test" para rodar os testes dos endpoints.
-- Rode o comando "npm run dev" ou "npm run start" para testar os endpoints
-- Utilise o arquivo request.rest para testar as funcionalidades.
+  
+- Dentro da pasta clonada, execute no terminal os comandos:
+->  ```npm install``` (para instalar as dependencias).
+->  ```npm migrations``` (para criar a polular tabela).
+->  ```npm run test``` (para rodar os tests dos enpoints).
+-> ```npm run dev```  ou ```npm run start``` (para rodar o servidor e utilizar os endpoints).
+
+- Utilize o arquivo request.rest para testar as funcionalidades ou pelo postman trocando o link pelo seu localhost mantendo os endpoints, seguindo  documentação do postman <a href="#documentacao">AQUI</a>.
+- Exemplo:
+de: https://doghero-carver-case1.herokuapp.com/dogwalker/creat
+para: http://localhost:3003/dogwalker/creat
 
 
-        
-
-
-<a href="#top">Voltar para o topo</a>
+ <div align="center"><a href="#top">Voltar para o topo</a></div>
 
    
