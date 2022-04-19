@@ -1,0 +1,51 @@
+
+// Criar passeio
+POST http://localhost:3000/dogwalker/creat
+Content-Type: application/json
+
+{
+    "date": "2022-03-25",
+    "duration": 60, 
+    "latitude": "Norte", 
+    "longitude":"Sul", 
+    "number_of_pets":1, 
+    "start_time": "15:00", 
+    "end_time": "16:00"
+}
+
+###
+//Iniciar passeio
+PUT http://localhost:3000/dogwalker/start_walk/:id_walk
+Content-Type: application/json
+
+{
+    "start_walk":"15:00"
+}
+
+###
+//Finalizar passeio
+PUT http://localhost:3000/dogwalker/finish_walk/:id_walk
+Content-Type: application/json
+
+{
+    "finish_walk":"15:30"
+}
+
+###
+
+//mostrar tempo real do passeio
+POST  http://localhost:3000/dogwalker/show?id_walk="id_do_passeio"
+Content-Type: application/json
+
+
+###
+
+//para pegar todos passeios mandar Request sem body
+GET  http://localhost:3000/dogwalker/index
+Content-Type: application/json
+
+{
+    "page":"número_da_página_que_quer_buscar",
+    "walks_for_page":"numero_de_passeios_por_página"
+}
+###
